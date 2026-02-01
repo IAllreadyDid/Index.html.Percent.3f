@@ -1,0 +1,61 @@
+Synopsis: Make SunIPC 1.2 work on SunOS 4.1.1
+# @(#)README	195.1 - 90/01/11
+
+This is a README file for a set of patches for SunIPC 1.2 and SunOS 4.1.1.
+As distributed, SunIPC 1.2 does not work with SunOS 4.1.1; the kernel
+interface changed enough to break our distributed files.
+
+Included in this patch release is the following:
+
+    this README file
+    new kernel drivers for sun3, sun3x, and sun4 architectures
+    a patch installation script ("install_ipc")
+    a new SunIPC configuration script ("ipc_configure")
+    a new tape extraction script ("1.2_IPC")
+
+Directions for patch installation:
+
+    Install SunOS 4.1.1 (since you're reading this, you've probably
+    already done that...)
+
+    Run the install_ipc script (if you are running extract_patch,
+    answer "yes" when it asks you if you want to run the install_ipc
+    script; extract_patch will run it for you).
+
+    ***IF YOU NEED TO READ IN THE SunIPC 1.2 SOFTWARE FROM TAPE***
+
+	The distributed tape extraction script does not work with SunOS
+	4.1.1.  A new extract script is included in this directory
+	("1.2_IPC").  Use this script instead of extract_unbundled to
+	read the release tape.
+
+	If you are mounting the SunIPC software, this section does not
+	effect you.
+
+    ***NOTE FOR SUN3X users***
+
+	The SunIPC 1.2 install script does not know about
+	"sub-architectures".  The distributed configuration script
+	"files/ipc_configure" will not work in this situation.
+	Therefore, you must run the new ipc_configure script instead.
+	This script is included in this directory.
+
+	The easiest way to do this is to install the SunIPC 1.2
+	software normally, but answer "no" when asked
+
+	    The SunIPC 1.2 software is now installed into your system.
+	    Would you like to configure the IPC software?
+
+	(if you are mounting the software instead of reading it from
+	tape, then you are already there...)
+
+	Then, instead of running the normal ipc_configure script, run
+	the one included in this directory.
+
+	This caveat ONLY applies to the sun3x architecture.
+
+
+You should now have a working SunIPC 1.2.  Should you have any
+problems, contact your local Sun answer center.
+
+

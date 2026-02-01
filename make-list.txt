@@ -1,0 +1,16 @@
+#!/bin/csh
+/bin/cp tryagain.html list.phtml
+echo "<? Include \"/export/sun-archive/include/hdr1incl.phtml\">"	>list.html.new
+echo "<title>Sun3 Patch List</title>"				>>list.html.new
+echo "<? Include \"/export/sun-archive/include/hdr2incl.phtml\">"       >list.ht
+ml.new
+echo "<body>"							>>list.html.new
+echo "<h1>Sun3 Patches</h1><hr>"				>>list.html.new
+echo "<ul>"							>>list.html.new
+foreach i (*.README)
+  echo $i | awk '{print "<li><a href=\"" $1 "\">" $1 "</a>"}'	>>list.html.new
+  grep Synopsis $i						>>list.html.new
+end
+echo "</ul>"							>>list.html.new
+echo "<? Include \"/export/sun-archive/include/footer.phtml\">"	>>list.html.new
+/bin/mv -f list.html.new list.phtml

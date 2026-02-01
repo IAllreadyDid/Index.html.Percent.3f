@@ -1,0 +1,32 @@
+This patch provides reliable hardware handshake (RTS/CTS) for
+the builtin serial lines of all Sun3's under SunOS 4.1.1.
+
+Important change: RTS/CTS for all Sun3's under SunOS 4.1.1.
+
+The problem is mentioned in every jumbo tty patch, but despite
+they promised it, Sun aparently never fixed this bug.
+
+This is only a software problem, because Sparcs (which use the same
+ol' Zilog 8350 chips than the Sun3's) under Solaris CAN do hardware
+handshake (and of course NOT under SunOS 4.1.X).
+
+Hint: You should install the latest jumbo tty patch (100513-04) before.
+
+Many thanks to Brian Katzung (katzung@katsun.chi.il.us) for fixing
+this annoying problem.
+---------------------------------------------------------------------------
+To install this patch, type as root:
+	mv /sys/`arch -k`/OBJ/zs_async.o /sys/`arch -k`/OBJ/zs_async.o.old
+	cp `arch -k`/zs_async.o /sys/`arch -k`/OBJ
+
+Build a new kernel:
+	cd /sys/`arch -k`/conf
+	setenv KERNELNAME `cat /etc/motd | sed -e "s/.*(//" | sed -e "s/).*//"`
+	config $KERNELNAME
+	cd ../$KERNELNAME
+	make
+
+Install the new kernel:
+	mv /vmunix /vmunix.old
+	mv vmunix /
+	reboot

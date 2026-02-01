@@ -1,0 +1,28 @@
+Synopsis: Allows C++ 2.0 to run under SunOS 4.1.1.
+
+This is a README file for a patch that will allow C++ 2.0 to run under
+SunOS 4.1.1.  The patch includes newer versions of header files that match
+those distributed with SunOS 4.1.1.  Also included is an updated version
+of dbx that runs under SunOS 4.1.1.
+
+Included in the patch release:
+
+    README file
+    patch installation script
+    directory which contains include files for SunOS 4.1.1
+    updated version of debugger for sun3 architecture
+    updated version of debugger for sun3x architecture
+    updated version of debugger for sun4 architecture
+
+Patch installation instructions:
+
+    After you install SunOS 4.1.1 and C++ 2.0, run the extract_patch
+    script and enter "yes" when you are prompted if you want to run
+    the install_C++_2.0 script.  extract_patch will run the script
+    for you.
+
+When the script is complete, you will have a working Sun C++ 2.0
+environment on SunOS 4.1.1.
+Should you have any problems, contact your local Sun answer center.
+
+

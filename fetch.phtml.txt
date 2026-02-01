@@ -1,0 +1,33 @@
+<? Include "/export/sun-archive/include/hdr1incl.phtml">
+<title>Sun3 Patch List</title>
+<? Include "/export/sun-archive/include/hdr2incl.phtml">
+<body>
+<h1>Sun3 Patches</h1><hr>
+<ul>
+<li><a href="MET.patch.tar.gz">MET.patch.tar.gz</a>
+(1001 bytes)
+<li><a href="hsfs.4.1.3.patch.tar.gz">hsfs.4.1.3.patch.tar.gz</a>
+(23290 bytes)
+<li><a href="st.4.1.3.patch.tar.gz">st.4.1.3.patch.tar.gz</a>
+(17544 bytes)
+<li><a href="tmpfs.4.1.3.patch.tar.gz">tmpfs.4.1.3.patch.tar.gz</a>
+(15542 bytes)
+<li><a href="tty.hwh.patch.tar.gz">tty.hwh.patch.tar.gz</a>
+(8226 bytes)
+<li><a href="ufs.4.1.3.patch.tar.gz">ufs.4.1.3.patch.tar.gz</a>
+(265247 bytes)
+<li><a href="resolv+4.9.6.tar.gz">resolv+4.9.6.tar.gz</a>
+(564678 bytes)
+<li><a href="strerror.tar.gz">strerror.tar.gz</a>
+(1383 bytes)
+</ul>
+<h1>Sun3 Y2000-Patches</h1><hr>
+<ul>
+<li><a href="date.gz">date.gz</a>
+(3428 bytes)
+<li><a href="bar.gz">bar.gz</a>
+(15103 bytes)
+<li><a href="passwd.gz">passwd.gz</a>
+(11282 bytes)
+</ul>
+<? Include "/export/sun-archive/include/footer.phtml">

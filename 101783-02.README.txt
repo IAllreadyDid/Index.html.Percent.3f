@@ -1,0 +1,100 @@
+Patch-ID# 101783-02
+Keywords: ld.so, ldd, ldconfig, cache, dlopen, dlclose, descriptors, tty, dlopen
+Synopsis: SunOS 4.1.1;4.1.2: jumbo patch for ld.so, ldd, and ldconfig
+Date: Jan/12/95
+
+Solaris Release:
+ 
+SunOS release: 4.1.1, 4.1.2
+ 
+Unbundled Product: 
+ 
+Unbundled Release:
+ 
+Topic: ld.so, ldd, and ldconfig fixes included here
+ 
+BugId's fixed with this patch: 1033086 1043300 1046379 1052428 1045194 1032208 1032209 1043082 1069404 1070559 1083431 1071781
+
+Changes incorporated in this version:
+
+Architectures for which this patch is available: sun3(all), sun4(all)
+
+Patches accumulated and obsoleted by this patch:
+
+Patches which may conflict with this patch:
+
+Obsoleted by: 100257-06 --> SunOS 4.1.3 Only.
+              101743-01 --> SunOS 4.1.3U1 Only.
+
+Notes:
+        This patch is ONLY intended to be used on SunOS 4.1.1 and SunOS 4.1.2 systems.  
+	Use patch 100257-06 for SunOS 4.1.3 systems and patch 101743-01 for SunOS 4.1.3U1.
+
+Problem Description:
+
+	ld.so 1.66 contains fixes for these bugs:
+	
+	1033086: Calling dlopen() on a file with BSS kills your application.
+        1043300: dlclose prevents access to functions even after further dlopen
+        1046379: cannot call a function in a [.so] from a function in another
+        1052428: ld.so usage of -L options confusing, leads to security probs
+        1045194: dlsym returns bad address for uninitialized global variable
+        1069404: bad handle errors with dlopen(NULL...)
+        1070559: SPARC ld.so's are not architecture independent
+	1076903: cascaded dependency checking too restrictive
+	1083431: dlsym() can fail to find all symbols
+	1071781: fix "relocate()" to deal with "interpreted" symbols properly.
+ 
+        ldd 1.6 contains fixes for these bugs:
+ 
+        1032208: ldd doesn't write file names if standard output is not a tty
+        1032209: ldd runs out of file descriptors
+ 
+        And, ldconfig 1.10 contains fixes for this bug:
+ 
+        1043082: Bogus first arg to 'ldconfig' kills dynamic linking
+
+
+	For brevity, and because this patch relates exclusively to ld
+	and its support programs, this patch contains fixes to 3 ld
+	"parts"; ld.so (the dynamic linker), ldd (dynamic dependencies
+	lister), and ldconfig (dynamic path cache tool).
+
+	Unpacking this one patch will provide binary executables for
+	ld.so, ldd, and ldconfig.  The result will be a hierarchy that
+	contains both SPARC and M68K versions of the referenced
+	programs.
+
+	The installation instructions below will address, separately,
+	the install sequence for each of the 3 patches.
+
+
+INSTALL:
+
+   As root install the following patches:
+
+   For ldd:
+
+	mv /bin/ldd /bin/ldd.FCS
+	cp -p {4.1.1, 4.1.2}/`arch`/ldd /bin/ldd
+	chmod 755 /bin/ldd
+
+   For ldconfig:
+
+	mv /usr/etc/ldconfig /usr/etc/ldconfig.FCS
+	cp -p {4.1.1, 4.1.2}/`arch`/ldconfig /usr/etc
+	chmod 755 /usr/etc/ldconfig
+
+   For ld.so:
+
+	cp -p {4.1.1, 4.1.2}/`arch`/ld.so /usr/lib/ld.so+
+	chmod 555 /usr/lib/ld.so+
+	mv /usr/lib/ld.so /usr/lib/ld.so-; mv /usr/lib/ld.so+ /usr/lib/ld.so
+	date
+
+If the "date" command does not run correctly, then IMMEDIATELY put back
+the old ld.so:
+
+	mv /usr/lib/ld.so- /usr/lib/ld.so
+
+NEVER "cp" or otherwise copy over an installed ld.so.

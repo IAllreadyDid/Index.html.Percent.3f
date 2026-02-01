@@ -1,0 +1,14 @@
+This Patch provides you with a working passwd command for the year 2000.
+
+Important change: passwd command displays aging date incorrectly after 31/12/99 is fixed.
+
+Sun3:
+
+Patch Installation Instructions: 
+
+1) As root, save the original passwd file:
+   mv /bin/passwd /bin/passwd.FCS
+   chmod 700 /bin/passwd.FCS
+
+2) Copy the new passwd file from the patch directory:
+   cp passwd /bin/passwd

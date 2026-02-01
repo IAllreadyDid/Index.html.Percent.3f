@@ -1,0 +1,3 @@
+"Solaris_to_Demon" is a text file, in the form of a walk
+through guide, describing the connection of a Sun workstation
+running Solaris 2.5 to Demon's dial up service.

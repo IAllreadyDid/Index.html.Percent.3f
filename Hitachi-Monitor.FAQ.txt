@@ -1,0 +1,123 @@
+This article is for all you folks out there who own the old 
+SUN Hitachi 19" colour 
+monitors. Whether you have bought one used and been slightly discouraged
+seeing new stuff, or have noticed it has faded over the years.. this
+article is for YOU! 
+You DON'T have to spend $2000 on a new 19" monitor... just get out ye olde
+screwdriver!
+
+[unless you want perfect clarity of focus. This article only deals with
+Colour/Brightness :-)]
+
+WARNING!!!
+This procedure involves tinkering with the monitor while still on.
+You do not have to remove the shielding. However, I'm sure there is some way
+you could still kill yourself. I disclaim any responsability of damage or
+injury while following these directions, incorrectly or correctly.
+I am not a qualified electrician, either. I'm just telling you what worked
+for me.
+
+That being said, onto the monitor adjusting!
+ [This is on a 19" hitachi monitor, with 5 bnc connectors on the back.
+    Hitachi model number 4119
+    SUN 365-1000  ]
+
+Ever since I bought the monitor, I have noticed that the colors were a
+little dark, though I wasn't sure why. Lately, I noticed that the failing
+was mainly something to do with the blue tint.
+However.. there are no external controls on the monitor, unlike newer
+monitors.
+
+A few weeks ago, I got to see openwin on a different machine than mine.
+I was aghast that the background was actually an obnoxious LIGHT blue,
+instead of the "soothing" medium blue I was so used to!
+
+Here is the approximate proceedure I used.
+
+Before starting the adjusting, you should have handy:
+
+1) A detailed black and white image (.gif recommended.)
+2) A simple color chart with colors right next to each either.
+   I used the color bar on my "xmandel" program (available from ftp.x.org :-)
+   But anything with the basic color palette should be fine
+   ( Red Orange Yellow Green Blue Indigo Violet, or as much as you can get)
+   Note that you do NOT want to just have "A colour picture", unless you have
+   the original analog image with you to compare it to.
+
+3) A medium-sized Philips' screwdriver.
+4) PLASTIC philips' adjustor things, if you can get them. 
+   (otherwise, you can take your chances with the screwdriver. But wear
+    rubber boots if you can)
+
+Take off the plastic back cover to the monitor.
+You also have to take off the back plate. 
+
+This is one piece of metal, that has holes for the BNC connectors and other
+controls to stick through.
+Do NOT mess with the shielding cage
+ (the sheets of metal with little 5mm holes all over them)
+
+Once the back place is off, you will see a whole bunch of little adjustable
+plastic things with Philip's screwdriver sockets in them.
+You should even have LABELS for them on the side!!
+But in case you don't, here they are:
+
+
+Black levels		1	2	3
+BRT tracking		X	X		(yes, one is missing)
+
+Cont tracking		X	X	X
+picture level		4	5	6
+
+"X" is something you shouldn't care about.
+
+Note that they are grouped appropriately just above the colour BNC that they
+deal with.
+
+Adjust the (regular) brightness knob so that it is NOT quite all the way at
+maximum. You'll appreciate this later.
+You might also do "xsetroot -solid white" or equivalent, to get a better
+idea of the color mix.
+
+Now it's time to adjust the knobs.
+I tried to use a plastic knife. But I also used the (metal) screwdriver at
+times. Using metal probably greatly increases the risk of arcing from the
+capacitors on the back. So use plastic if you can.
+
+Step 1:
+
+Looking at the black and white image, adjust plastic knobs 4, 5, & 6
+so that the image is as completely black-and-white as you can get it.
+
+It also helps if you have something pure grey around. I had the olwm title
+bars to aid me in this respect.
+
+Clockwise is more color. They should probably all be almost al the way
+around, in the clockwise direction.
+
+
+After you have done this, you should not have to touch them again
+[unless your monitor was REALLY dark, and you can't tell colours properly
+ until after you follow the next step]
+
+
+Step 2:
+
+Looking at the colour bar (or whatever simple color image you have handy)
+adjust the "Black Level" (knobs 1, 2, 3) until first they are bright enough,
+and secondly, until the colors look right :-)
+
+Depending on how bad your monitor was in the first place, you may have to go
+back to step 1 and readjust.
+
+Once again, clockwise is "more".
+
+You now hopefully have a properly balanced monitor. ANd what's more, you can
+actually turn up the brightness knob to maximum now, and prepare to be really
+impressed :-)
+
+
+If you are astounded at the results, feel free to drop me a note at
+philb@soda.berkeley.edu
+I'd like to know that I helped someone out there :-)
+

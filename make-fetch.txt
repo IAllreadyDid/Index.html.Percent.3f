@@ -1,0 +1,16 @@
+#!/bin/csh
+/bin/cp tryagain.html fetch.phtml
+echo "<? Include \"/export/sun-archive/include/hdr1incl.phtml\">"	>fetch.html.new
+echo "<title>Sun3 Patch List</title>"				>>fetch.html.new
+echo "<? Include \"/export/sun-archive/include/hdr2incl.phtml\">"       >fetch.h
+tml.new
+echo "<body>"							>>fetch.html.new
+echo "<h1>Sun3 Patches</h1><hr>"				>>fetch.html.new
+echo "<ul>"							>>fetch.html.new
+foreach i (*.tar.gz)
+  echo $i | awk '{print "<li><a href=\"" $1 "\">" $1 "</a>"}'	>>fetch.html.new
+  grep Synopsis `basename $i .tar.gz`.README			>>fetch.html.new
+  /bin/ls -l $i | awk '{print "(" $4 " bytes)" }'		>>fetch.html.new
+end
+echo "<? Include \"/export/sun-archive/include/footer.phtml\">"	>>fetch.html.new
+/bin/mv -f fetch.html.new fetch.phtml

@@ -1,0 +1,219 @@
+Patch-ID# 102231-01
+Keywords: security, NFS Jumbo Patch
+Synopsis: SunOS 4.1.1/4.1.2: NFS Jumbo Patch
+Date: Dec/23/94
+
+SunOS release: 4.1.1, 4.1.2
+
+NOTE:   NFS Jumbo patch support for SunOS 4.1.1 & 4.1.2 was previously
+        provided in patch 100173.  Beginning with rev 100173-12, support
+        for these releases has been discontinued in that patch.  The 100173
+        patch will continue to only support SunOS 4.1.3.  This patch
+        supports for 4.1.1 & 4.1.2 releases equivalent to patch rev
+        100173-10.
+
+        PATCH-ID                SUNOS LEVEL
+
+        102177-02               4.1.3_U1
+        100173-12               4.1.3
+
+
+Unbundled Product:
+
+Unbundled Release:
+
+Relevant Architectures: sun3, sun3x, sun4, sun4c sun4m 
+
+BugId's fixed with this patch: 1039977 1032959 1029628 1037476 1038302 1034328 1045536 1030884 1045993 1047557 1052330 1053679 1041409 1065361 1066287 1064433 1070654 1076985 1095935 1097593 1111816
+
+Changes incorporated in this version: 
+
+Patches accumulated and obsoleted by this patch: 
+
+Patches which may conflict with this patch: 100689-01 (SunOS 4.1.2 : seg_vn.o)
+       Patch 100689-01 should be applied after applying 102231-01 
+
+Obsolete By:  
+
+Problem Description:
+
+NOTE: This patch is incompatible with Online: DiskSuite and Backup: Copilot.
+      for SunOS4.1 and SunOS4.1.1.  This note does not apply to 4.1.2
+
+      Patch versions for 4.1.1 can be used on SunOS4.1 systems
+
+NOTE: These patches were made by using "GENERIC" config file.
+
+NOTE: This patch is compatible with Unix Unbundled product SunDBE. Please
+      make sure that SunDBE  version of nfs_export.o is installed instead
+      of nfs_export.o  from this patch.
+
+Bugfix Descriptions:
+
+BUGID: 1039977
+        When the kernel is built with the NFS debugging options the resulting 
+	kernel panics due to a bug in the nfs debugging code. 
+
+BUGID: 1032959
+	A client call to NFSPROC_MKDIR causes incorrect attributes to be returned.
+
+BUGID: 1029628
+        When a program with the setuid bit set is copied between local files the
+	setuid bit is cleared.  If the same file is copied to an nfs file system
+	the setuid bit is not cleared on the new file.     
+
+BUGID: 1037476
+        Sending bad procedure number to NFS server can cause mbuf leak.
+
+BUGID: 1038302
+        NFS export option "anon=-1" does not work. The user will not be allowed
+	to mount the exported filesystem.
+
+BUGID: 1034328
+        An NFS client can crash if two procedures unlink the same file at once.
+
+BUGID: 1030884
+	Whenever a write to a file cannot be satisfied because the filesystem is
+	filled, an ENOSPC error is returned (as expected). Subsequent to this 
+        error condition, any write to the file on that open descriptor also
+        return ENOSPC.
+
+BUGID: 1045536
+        NFS exports to non-sun systems can allow file truncation (security
+        violation).
+       
+BUGID: 1045993
+        NFS attribute problem on locked files over nfs results in read error.
+
+BUGID: 1047557
+        Old pages not being purged if file gets truncated on server.
+
+BUGID: 1052330
+        Repeatedly lock, RW, and unlock an NFS file between several clients,
+	can results in inconsistent file contents.
+
+BUGID: 1053679
+	File range locking of NFS files was broken in 4.x.
+
+BUGID: 1041409 (June-3-91)
+       setuid  
+
+BUGID: 1065361 (July-29-91)
+       When an existing file is created again it has the wrong gid.
+
+BUGID: 1064433 (Aug-19-91)
+	Export of subtree doesn't work due to rfs_lookup not checking for ".."  
+        of the export point.
+
+BUGID: 1066287 (Aug-19-91) seg_vn.c
+	nfs hang when looking at large file being changed on server 
+
+BUGID: 1066287 (Nov-5-91)
+	Added check for page being null that could cause a panic.
+
+BUGID: 1070654 (Nov-5-91)
+	When files are recreated, it is marked as being in use such
+	that removal of the file results in a .nfsXXX file being created
+	and unmount is not possible.
+
+BUGID: 1095935 
+	NFS server in which a client presenting a 32-bit uid in which 
+	the 16 low-order bits are 0 gets interpreted as root on the server.
+
+BUGID: 1076985
+	The problem is in NFS XDR decoding of a read directory response it 
+	does a kmem_alloc of the requested size, but when decoding the 
+	response it reads in the file number and the name length before 
+	determining if there is sufficient space to read the name, as a 
+	result a panic occurs.
+
+Fix was made to bug introduced in the -06 fix: 
+	This bug was introduced when bug 1064433 was fixed in the -06 patch
+	rev, although apparently no formal bug report was filed. The bug was 
+	that the vnode is not released when returning from an error, even 
+	though the vnode was successfully acquired (and held) in the 
+	fhtovp() call. A problem with a bug of this nature is that if 
+	rfs_lookup() returns without releasing the vnode then the file 
+	becomes un-deletable until the system is rebooted.  Rfs_lookup() 
+	will only return with the vnode held only if the user tries to 
+	cd using .. to above the exported root directory for the filesystem 
+	(or directory tree).
+
+The -07 Temp fix was taken out of NFS code an put in seg_vn.c:
+	The bug below is really in seg_vn.c.  In -07 this was fixed in 
+	NFS code but now in -08 the proper fix has been made.
+
+  	*BUGID: 1066287 (Aug-19-91) seg_vn.c
+        nfs hang when looking at large file being changed on server
+
+BUGID: 1097593
+        Accessing NFS mounted files as root first, causes any application
+        not to be able to access the same file regardless of the file permission
+
+BUGID: 1111816
+        NFS write append performance poor.  (nfs_vnodeops.o changed)
+
+
+Patch Installation Instructions:
+
+As root, backup the old files:
+mv /sys/`arch -k`/OBJ/nfs_client.o /sys/`arch -k`/OBJ/nfs_client.o.FCS
+mv /sys/`arch -k`/OBJ/nfs_common.o /sys/`arch -k`/OBJ/nfs_common.o.FCS
+mv /sys/`arch -k`/OBJ/nfs_dump.o /sys/`arch -k`/OBJ/nfs_dump.o.FCS
+mv /sys/`arch -k`/OBJ/nfs_server.o /sys/`arch -k`/OBJ/nfs_server.o.FCS
+mv /sys/`arch -k`/OBJ/nfs_subr.o /sys/`arch -k`/OBJ/nfs_subr.o.FCS
+mv /sys/`arch -k`/OBJ/nfs_vfsops.o /sys/`arch -k`/OBJ/nfs_vfsops.o.FCS
+mv /sys/`arch -k`/OBJ/nfs_vnodeops.o /sys/`arch -k`/OBJ/nfs_vnodeops.o.FCS
+mv /sys/`arch -k`/OBJ/nfs_xdr.o /sys/`arch -k`/OBJ/nfs_xdr.o.FCS
+mv /sys/`arch -k`/OBJ/nfs_export.o /sys/`arch -k`/OBJ/nfs_export.o.FCS
+mv /sys/`arch -k`/OBJ/seg_vn.o /sys/`arch -k`/OBJ/seg_vn.o.FCS
+mv /sys/`arch -k`/OBJ/svc_kupd.o /sys/`arch -k`/OBJ/svc_kupd.o.FCS
+
+cd /sys/nfs
+mv nfs.h       nfs.h.FCS
+mv nfs_clnt.h  nfs_clnt.h.FCS
+mv rnode.h     rnode.h.FCS
+mv export.h    export.h.FCS
+
+cd /usr/include/nfs
+mv nfs.h       nfs.h.FCS
+mv nfs_clnt.h  nfs_clnt.h.FCS
+mv rnode.h     rnode.h.FCS
+mv export.h    export.h.FCS
+
+
+Now install the patched files from the patch directory location:
+cp `arch -k`/{OS version}/nfs_client.o /sys/`arch -k`/OBJ/nfs_client.o
+cp `arch -k`/{OS version}/nfs_common.o /sys/`arch -k`/OBJ/nfs_common.o
+cp `arch -k`/{OS version}/nfs_dump.o /sys/`arch -k`/OBJ/nfs_dump.o
+cp `arch -k`/{OS version}/nfs_server.o /sys/`arch -k`/OBJ/nfs_server.o
+cp `arch -k`/{OS version}/nfs_subr.o /sys/`arch -k`/OBJ/nfs_subr.o
+cp `arch -k`/{OS version}/nfs_vfsops.o /sys/`arch -k`/OBJ/nfs_vfsops.o
+cp `arch -k`/{OS version}/nfs_vnodeops.o /sys/`arch -k`/OBJ/nfs_vnodeops.o
+cp `arch -k`/{OS version}/nfs_xdr.o /sys/`arch -k`/OBJ/nfs_xdr.o
+cp `arch -k`/{OS version}/seg_vn.o /sys/`arch -k`/OBJ/seg_vn.o
+cp `arch -k`/{OS version}/svc_kudp.o /sys/`arch -k`/OBJ/svc_kudp.o
+
+ 
+NOTE : The following module should *NOT* be copied only for the SunDBE
+system. The SunDBE version of nfs_export.o should be used.
+
+cp `arch -k`/{OS version}/nfs_export.o /sys/`arch -k`/OBJ/nfs_export.o
+
+cp `arch -k`/{OS version}/nfs.h       /sys/nfs
+cp `arch -k`/{OS version}/nfs_clnt.h  /sys/nfs
+cp `arch -k`/{OS version}/rnode.h     /sys/nfs
+cp `arch -k`/{OS version}/export.h    /sys/nfs
+
+cp `arch -k`/{OS version}/nfs.h       /usr/include/nfs
+cp `arch -k`/{OS version}/nfs_clnt.h  /usr/include/nfs
+cp `arch -k`/{OS version}/rnode.h     /usr/include/nfs
+cp `arch -k`/{OS version}/export.h    /usr/include/nfs
+
+
+Config, make and install a new kernel.
+
+Please refer to the system and networking administration manual
+for details on building and installing a new kernel
+
+

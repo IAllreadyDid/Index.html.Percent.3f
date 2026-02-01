@@ -1,0 +1,528 @@
+<? Include "/export/sun-archive/include/hdr1incl.phtml">
+<title>Sun3 Patch List</title>
+<? Include "/export/sun-archive/include/hdr2incl.phtml">
+<body>
+<h1>Sun3 Patches</h1><hr>
+<ul>
+<li><a href="100058-03.tar.gz">100058-03.tar.gz</a>
+Synopsis:SunOS 4.1.1;4.1;4.0.3:Cron scheduling and queue errors; may run jobs twice
+(94423 bytes)
+<li><a href="100071-01.tar.gz">100071-01.tar.gz</a>
+Synopsis:  Sunview does not support 256 file descriptors.
+(1350169 bytes)
+<li><a href="100072-01.tar.gz">100072-01.tar.gz</a>
+Synopsis: The modload(8) utility does not recognize the "vector" keyword
+(28799 bytes)
+<li><a href="100074-01.tar.gz">100074-01.tar.gz</a>
+Synopsis: Pages of one file appear in another.
+(196747 bytes)
+<li><a href="100075-11.tar.gz">100075-11.tar.gz</a>
+Synopsis: 4.1;4.1.1;4.1.2;4.1.3: rpc.lockd jumbo patch
+(1993864 bytes)
+<li><a href="100076-01.tar.gz">100076-01.tar.gz</a>
+Synopsis: Pages stolen after Copy On Write
+(5750 bytes)
+<li><a href="100082-01.tar.gz">100082-01.tar.gz</a>
+Synopsis: "tas" data fault treated as a read operation durring pagefault.
+(9989 bytes)
+<li><a href="100089-06.tar.gz">100089-06.tar.gz</a>
+Synopsis: SunOS 4.1:fixes for various tmpfs bugs 
+(45946 bytes)
+<li><a href="100090-01.tar.gz">100090-01.tar.gz</a>
+Synopsis:writing to an PROT_READ area is giving SIGBUS not SIGSEGV
+(34241 bytes)
+<li><a href="100098-03.tar.gz">100098-03.tar.gz</a>
+Synopsis: multiple fixes: 16k record limit; yacc;lex symbol name clash
+(1104194 bytes)
+<li><a href="100101-02.tar.gz">100101-02.tar.gz</a>
+Synopsis: fix for PTRACE_ATTACH security bug
+(17056 bytes)
+<li><a href="100103-12.tar.gz">100103-12.tar.gz</a>
+Synopsis: SunOS 4.1.3;4.1.3_U1: set file permissions to more secure mode
+(4106 bytes)
+<li><a href="100106-02.tar.gz">100106-02.tar.gz</a>
+Synopsis: SunLink X.25 : fixes many x25 and x29 bugs.	
+(178627 bytes)
+<li><a href="100120-04.tar.gz">100120-04.tar.gz</a>
+Synopsis: SunOS 4.1: TLI Jumbo patch.
+(64014 bytes)
+<li><a href="100121-09.tar.gz">100121-09.tar.gz</a>
+Synopsis: 4.1 NFS Jumbo Patch
+(278321 bytes)
+<li><a href="100125-05.tar.gz">100125-05.tar.gz</a>
+Synopsis: SunOS 4.0.3,4.1,4.1.1:after telnet session aborts, new session gets previous output
+(133895 bytes)
+<li><a href="100126-05.tar.gz">100126-05.tar.gz</a>
+Synopsis: SunOS4.1 SunOS4.1_PSR_A SunOS4.1.1 SunOS4.0.3  MBUF PATCH
+(106206 bytes)
+<li><a href="100128-02.tar.gz">100128-02.tar.gz</a>
+Synopsis: SunOS 4.1.1,4.1: multiple fixes to Sun3x floppy driver. 
+ Synopsis: floppy on 3/80 can be put into a weird state returns Device busy
+(9903 bytes)
+<li><a href="100130-01.tar.gz">100130-01.tar.gz</a>
+Synopsis: use command not working for dbx and dbxtool
+(302229 bytes)
+<li><a href="100133-01.tar.gz">100133-01.tar.gz</a>
+Synopsis: sendmail yp aliasing does not work with non sun yp masters
+(276976 bytes)
+<li><a href="100137-01.tar.gz">100137-01.tar.gz</a>
+Synopsis: ALM flow control patch
+(9812 bytes)
+<li><a href="100141-03.tar.gz">100141-03.tar.gz</a>
+Synopsis: SunOS 4.1;4.1.1: nres_gethostbyaddr logs misleading messages to console
+(247079 bytes)
+<li><a href="100147-01.tar.gz">100147-01.tar.gz</a>
+Synopsis:ifconfig xpkt0 causes system crash
+(6058 bytes)
+<li><a href="100149-03.tar.gz">100149-03.tar.gz</a>
+Synopsis: SunOS 4.1 and 4.1.1: system crashes with mclput panic
+(16225 bytes)
+<li><a href="100159-01.tar.gz">100159-01.tar.gz</a>
+Synopsis: SunOS 4.1, 4.1.1:system hangs using sockets in local loopback tcp-ip
+(5423 bytes)
+<li><a href="100160-01.tar.gz">100160-01.tar.gz</a>
+Synopsis: Unbundled C 1.0: cc dies with yacc stack overflow
+(326893 bytes)
+<li><a href="100170-10.tar.gz">100170-10.tar.gz</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2;4.1.3: jumbo patch to fix various ld problems
+(127468 bytes)
+<li><a href="100172-04.tar.gz">100172-04.tar.gz</a>
+Synopsis: FDDI 1.1: fddi problems with SunOS 4.1.1, 4.1, 4.0.3
+(75245 bytes)
+<li><a href="100173-10.tar.gz">100173-10.tar.gz</a>
+Synopsis: SunOS 4.1.1/4.1.2/4.1.3 : NFS Jumbo Patch
+(648183 bytes)
+<li><a href="100174-06.tar.gz">100174-06.tar.gz</a>
+Synopsis: SunOS 4.1.1: fixes for many tmpfs bugs.
+(36621 bytes)
+<li><a href="100176-15.tar.gz">100176-15.tar.gz</a>
+Synopsis: OpenWindows 2.0: Patch release 2008-19 for X11-NeWS server
+(1414337 bytes)
+<li><a href="100177-01.tar.gz">100177-01.tar.gz</a>
+Synopsis: SunOS 4.1: quotas and heavy system load.
+(13479 bytes)
+<li><a href="100178-08.tar.gz">100178-08.tar.gz</a>
+Synopsis: SunOS4.1.1;4.1.2;4.1.3: inetd "broken server detection" breaks on fast machines
+(41344 bytes)
+<li><a href="100179-01.tar.gz">100179-01.tar.gz</a>
+Synopsis: SunOS 4.1.1:polling not working correctly
+(5431 bytes)
+<li><a href="100180-03.tar.gz">100180-03.tar.gz</a>
+Synopsis: cpp: cc option -I does not work for more than 47 paths
+(54544 bytes)
+<li><a href="100184-02.tar.gz">100184-02.tar.gz</a>
+Synopsis: Openwindows 2.0: sv_xv_sel_svc and rpc can be used to gain access to system files
+(24281 bytes)
+<li><a href="100185-01.tar.gz">100185-01.tar.gz</a>
+Synopsis: /etc/rc.local can be used to destroy passwd
+(685 bytes)
+<li><a href="100187-01.tar.gz">100187-01.tar.gz</a>
+Synopsis: SunOS 4.1& 4.1_PSR_A: TIOCCONS redirection is a security violation
+(116527 bytes)
+<li><a href="100188-01.tar.gz">100188-01.tar.gz</a>
+Synopsis: SunOS 4.1.1: TIOCCONS redirection is a security violation.
+(87237 bytes)
+<li><a href="100191-02.tar.gz">100191-02.tar.gz</a>
+Synopsis: dbx core dumps when sourcing files with aliases
+(301554 bytes)
+<li><a href="100192-02.tar.gz">100192-02.tar.gz</a>
+Synopsis: SunOS 4.1.x: colormap is not correct when 128 colors are used.
+(39264 bytes)
+<li><a href="100198-01.tar.gz">100198-01.tar.gz</a>
+(9333 bytes)
+<li><a href="100199-03.tar.gz">100199-03.tar.gz</a>
+Synopsis: SunOS 4.1.1 :TLI Jumbo patch.
+(63732 bytes)
+<li><a href="100201-06.tar.gz">100201-06.tar.gz</a>
+Synopsis: 4.1, 4.1_PSR_A, 4.1.1: c2 jumbo patch
+(122682 bytes)
+<li><a href="100203-01.tar.gz">100203-01.tar.gz</a>
+Synopsis: SunOS 4.1.1: fcvt() causes segmentation fault with INGRES databases
+(3208905 bytes)
+<li><a href="100207-01.tar.gz">100207-01.tar.gz</a>
+Synopsis: SunOS 4.1.1:"boot" works for 1st disk controller only
+(121925 bytes)
+<li><a href="100210-01.tar.gz">100210-01.tar.gz</a>
+Synopsis: SunOS 4.1.1: sunview bugid 1028856 - Defaults not reading the master Database
+(626966 bytes)
+<li><a href="100211-02.tar.gz">100211-02.tar.gz</a>
+Synopsis: SunOS 4.1, 4.1.1: tape synchronization lost when interrupted
+(73139 bytes)
+<li><a href="100217-01.tar.gz">100217-01.tar.gz</a>
+Synopsis: mounting certain iso 9660 cd's succeed but directory becomes data
+(8692 bytes)
+<li><a href="100224-13.tar.gz">100224-13.tar.gz</a>
+Synopsis: SunOS 4.1.1,4.1.2,4.1.3: /bin/mail jumbo patch
+(59518 bytes)
+<li><a href="100225-02.tar.gz">100225-02.tar.gz</a>
+Synopsis: SunOS 4.1, 4.1.1, 4.1_PSR_A :printers, terminals, plotters, hang on serial and ALM2 ports.
+(113828 bytes)
+<li><a href="100228-02.tar.gz">100228-02.tar.gz</a>
+Synopsis: SunOS 4.1, 4.1.1 :Kernel panic: psig on exiting sunview or psig action
+(13206 bytes)
+<li><a href="100233-01.tar.gz">100233-01.tar.gz</a>
+Synopsis: SunOS 4.1 4.1.1: Mouse tracking is lost
+(83398 bytes)
+<li><a href="100234-01.tar.gz">100234-01.tar.gz</a>
+Synopsis: SunOS 4.1 :System panics when accounting is used 
+(4161 bytes)
+<li><a href="100236-01.tar.gz">100236-01.tar.gz</a>
+Synopsis:SunOS 4.1.1:cxref fails in handling struct bit fields larger than 16 bits
+(173131 bytes)
+<li><a href="100240-01.tar.gz">100240-01.tar.gz</a>
+Synopsis: SunOS 4.1.1: version "make" takes longer than 4.0.3 to process archives.
+(196084 bytes)
+<li><a href="100244-02.tar.gz">100244-02.tar.gz</a>
+Synopsis: Kernel panic when 'nchanmap'==100 & panic data fault when using 'lwp'.
+(8878 bytes)
+<li><a href="100245-01.tar.gz">100245-01.tar.gz</a>
+Synopsis: Open Windows: 2.0 banding bug label centering bug
+(136874 bytes)
+<li><a href="100246-02.tar.gz">100246-02.tar.gz</a>
+Synopsis: OW 2.0: Panel button in monochrome causes core dump 
+(58853 bytes)
+<li><a href="100247-18.tar.gz">100247-18.tar.gz</a>
+Synopsis: OW 2.0: XVIEW/2.0 CTE Jumbo Patch
+(1909283 bytes)
+<li><a href="100249-07.tar.gz">100249-07.tar.gz</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2,4.1.3: automounter jumbo patch
+(420154 bytes)
+<li><a href="100250-01.tar.gz">100250-01.tar.gz</a>
+Synopsis: SunOS 4.1.1: FSR-BSR on the old SCSI tape driver fail
+(32666 bytes)
+<li><a href="100251-01.tar.gz">100251-01.tar.gz</a>
+Synopsis: SunOS 4.1,4.1.1:/usr/lib/expreserve race condition
+(9144 bytes)
+<li><a href="100252-01.tar.gz">100252-01.tar.gz</a>
+Synopsis: dbx:4.1.1: print of a large struct overflows stack
+(323873 bytes)
+<li><a href="100254-02.tar.gz">100254-02.tar.gz</a>
+Synopsis: SunOS 4.0.3, 4.1,4.1.1:panic: ttcompat: unexpected ioctl acknowledgment
+(15493 bytes)
+<li><a href="100255-01.tar.gz">100255-01.tar.gz</a>
+Synopsis: SunOS 4.1, 4.1.1:xdballoc: out of dblks, then a "printf" to hangs system
+(74759 bytes)
+<li><a href="100256-01.tar.gz">100256-01.tar.gz</a>
+Synopsis: SunOS 4.1, 4.1.1 :pax gets into infinite loop at EOF when writting to cartridge tape
+(106429 bytes)
+<li><a href="100257-05.tar.gz">100257-05.tar.gz</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: jumbo patch for ld.so, ldd, and ldconfig
+(109759 bytes)
+<li><a href="100259-01.tar.gz">100259-01.tar.gz</a>
+Synopsis: SunOS 4.1.1: ufs_inactive patch
+(13942 bytes)
+<li><a href="100262-01.tar.gz">100262-01.tar.gz</a>
+Synopsis: SunOS 4.1.1:st driver can panic with divide by zero in stclose()
+(44876 bytes)
+<li><a href="100265-01.tar.gz">100265-01.tar.gz</a>
+Synopsis: SunOS 4.1.1:writing to a PROT_READ area is giving SIGBUS not SIGSEGV
+(26445 bytes)
+<li><a href="100266-07.tar.gz">100266-07.tar.gz</a>
+Synopsis: SunOS 4.1.1: Domestic libc replacement with all 4.1.1 patches to date
+(4456962 bytes)
+<li><a href="100267-09.tar.gz">100267-09.tar.gz</a>
+Synopsis: SunOS 4.1.1: international libc replacement with all 4.1.1 patches
+(4459841 bytes)
+<li><a href="100268-02.tar.gz">100268-02.tar.gz</a>
+Synopsis: colldef/4.1.1: several fixes to /usr/etc/colldef
+(37592 bytes)
+<li><a href="100269-02.tar.gz">100269-02.tar.gz</a>
+Synopsis: SunOS 4.1.1:'bar tvf rst0' causes segmentation fault
+(180162 bytes)
+<li><a href="100272-07.tar.gz">100272-07.tar.gz</a>
+Synopsis: SunOS 4.1.3: Security update for in.comsat.  
+(19232 bytes)
+<li><a href="100273-01.tar.gz">100273-01.tar.gz</a>
+Synopsis: SunOS 4.1,4.1.1,4.1_PSR_A: "panic: hat_ptesync - invalid pme" 
+(88480 bytes)
+<li><a href="100274-02.tar.gz">100274-02.tar.gz</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2: dup biodone related panics
+(68373 bytes)
+<li><a href="100279-01.tar.gz">100279-01.tar.gz</a>
+Synopsis: SunOS 4.1.1: msgdsize, message block b_datap pointers are getting corrupted
+(75086 bytes)
+<li><a href="100280-02.tar.gz">100280-02.tar.gz</a>
+Synopsis: SunOS 4.1.1: st jumbo patch for 4.1.1
+(79767 bytes)
+<li><a href="100281-01.tar.gz">100281-01.tar.gz</a>
+Synopsis: SunOS 4.1.1, 4.1:NFS servers freezing, system looks like it crashed
+(20925 bytes)
+<li><a href="100283-03.tar.gz">100283-03.tar.gz</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: in.routed mishandles gateways, multiple 
+(93581 bytes)
+<li><a href="100286-02.tar.gz">100286-02.tar.gz</a>
+Synopsis: SunOS 4.1.1: sort fails with n option on second field0---
+(19662 bytes)
+<li><a href="100287-05.tar.gz">100287-05.tar.gz</a>
+Synopsis: PC-NFS 3.5c jumbo patch (updated PRT.COM to v3.5c)
+(267040 bytes)
+<li><a href="100289-01.tar.gz">100289-01.tar.gz</a>
+Synopsis: SunOS 4.1.1 mounting DOS low density floppy doesn't work.
+(11736 bytes)
+<li><a href="100291-03.tar.gz">100291-03.tar.gz</a>
+Synopsis: SunOS 4.1.1: bar Z option, special chars  
+(197413 bytes)
+<li><a href="100293-04.tar.gz">100293-04.tar.gz</a>
+Synopsis: SunOS 4.1.1: write system call is returning EINTR
+(70599 bytes)
+<li><a href="100296-04.tar.gz">100296-04.tar.gz</a>
+Synopsis: SunOS 4.1.1, 4.1.2, 4.1.3: netgroup exports to world
+(36428 bytes)
+<li><a href="100297-02.tar.gz">100297-02.tar.gz</a>
+Synopsis: Languages: Yacc's internal table size is too small for some applications
+(85852 bytes)
+<li><a href="100300-01.tar.gz">100300-01.tar.gz</a>
+Synopsis: SunOS 4.1.1,4.1: automount(8) and on(1C) do not lock mtab during updates 
+(87012 bytes)
+<li><a href="100303-02.tar.gz">100303-02.tar.gz</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2: system freezes using loopback interface
+(12068 bytes)
+<li><a href="100304-02.tar.gz">100304-02.tar.gz</a>
+Synopsis: SunOS 4.1.1: panic due to window in rtfree()
+(42583 bytes)
+<li><a href="100305-15.tar.gz">100305-15.tar.gz</a>
+Synopsis: SunOS 4.1.1, 4.1.2, 4.1.3: lpr Jumbo Patch
+(417204 bytes)
+<li><a href="100310-02.tar.gz">100310-02.tar.gz</a>
+Synopsis: SunOS 4.1, 4.1.1: polling not working correctly with fds > 30
+(5474 bytes)
+<li><a href="100311-01.tar.gz">100311-01.tar.gz</a>
+Synopsis: SunOS 4.1.1:restore i, wildcard chars. can't be used when adding files
+(261290 bytes)
+<li><a href="100313-01.tar.gz">100313-01.tar.gz</a>
+Synopsis: SunOS 4.1.1: umount;sync race can hang system
+(8750 bytes)
+<li><a href="100315-01.tar.gz">100315-01.tar.gz</a>
+Synopsis: SunOS 4.1.1:serial ports with soft Carrier & HUPCL not dropping DTR on last close
+(76929 bytes)
+<li><a href="100318-01.tar.gz">100318-01.tar.gz</a>
+Synopsis: C 1.1: problem with code generator handles comparisons of bitfield
+(292199 bytes)
+<li><a href="100321-01.tar.gz">100321-01.tar.gz</a>
+Synopsis: SunOS 4.1.1:system crashes with iesynccmd panic
+(25445 bytes)
+<li><a href="100328-18.tar.gz">100328-18.tar.gz</a>
+Synopsis: X.25 7.0: Fixes x29 bugs
+(456577 bytes)
+<li><a href="100331-01.tar.gz">100331-01.tar.gz</a>
+Synopsis: PATCH ON HOLD
+(996 bytes)
+<li><a href="100332-07.tar.gz">100332-07.tar.gz</a>
+Synopsis: Fortran 1.4: Fixes several bugs including the back end components
+(5695258 bytes)
+<li><a href="100335-01.tar.gz">100335-01.tar.gz</a>
+Synopsis:  Sunview does not support 256 file descriptors.
+(10808 bytes)
+<li><a href="100338-05.tar.gz">100338-05.tar.gz</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: system crashes with assertion failed panic
+(31646 bytes)
+<li><a href="100341-01.tar.gz">100341-01.tar.gz</a>
+Synopsis: SunOS 4.1.1 inetd: Problem with booting diskless clients 
+(38978 bytes)
+<li><a href="100342-03.tar.gz">100342-03.tar.gz</a>
+Synopsis: SunOS 4.1 4.1.1 4.1.2 4.1.3: NIS client needs long recovery time if server reboots
+(43922 bytes)
+<li><a href="100344-01.tar.gz">100344-01.tar.gz</a>
+Synopsis: bourne shell: temporary file not removed if exec'ing other program
+(93605 bytes)
+<li><a href="100346-03.tar.gz">100346-03.tar.gz</a>
+Synopsis: SunOS 4.1.1: patches for libxpg
+(39716 bytes)
+<li><a href="100357-01.tar.gz">100357-01.tar.gz</a>
+Synopsis: SunOS 4.1.1: SIGIO signal for async io fails to pend across NFS
+(8578 bytes)
+<li><a href="100359-08.tar.gz">100359-08.tar.gz</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: streams jumbo patch
+(268876 bytes)
+<li><a href="100361-03.tar.gz">100361-03.tar.gz</a>
+Synopsis: SunOS 4.1.1: server not responding due to limits of arp table
+(24690 bytes)
+<li><a href="100370-01.tar.gz">100370-01.tar.gz</a>
+Synopsis: SunOS4.1 SunOS4.1.1 PTICKS PATCH
+(3059 bytes)
+<li><a href="100372-02.tar.gz">100372-02.tar.gz</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: tfs and c2 do not work together
+(608061 bytes)
+<li><a href="100374-01.tar.gz">100374-01.tar.gz</a>
+Synopsis: OBSOLETE use 100399
+(692 bytes)
+<li><a href="100375-01.tar.gz">100375-01.tar.gz</a>
+Synopsis: SunOS 4.1.1:Accessing a SCSI tape drive causes system crash. 
+(14599 bytes)
+<li><a href="100377-17.tar.gz">100377-17.tar.gz</a>
+Synopsis: SunOS 4.1.x: sendmail jumbo patch 
+(616745 bytes)
+<li><a href="100381-01.tar.gz">100381-01.tar.gz</a>
+Synopsis: SunOS 4.1.1: du and tar bug fix for compatibility with VMS 
+(173971 bytes)
+<li><a href="100383-06.tar.gz">100383-06.tar.gz</a>
+Synopsis: SunOS 4.0.3;4.1;4.1.1;4.1.2;4.1.3: rdist security and hard links enhancement, 
+(96766 bytes)
+<li><a href="100384-01.tar.gz">100384-01.tar.gz</a>
+Synopsis: SunOS 4.1.1: panic data fault on rfs
+(3964 bytes)
+<li><a href="100390-01.tar.gz">100390-01.tar.gz</a>
+Synopsis: SunOS4.1, 4.1.1: DNS doesn't work properly with secondary name server 
+(37783 bytes)
+<li><a href="100399-02.tar.gz">100399-02.tar.gz</a>
+Synopsis:  SunOS 4.1;4.1.1: csh memory leak tty gets EOF condition
+(253229 bytes)
+<li><a href="100402-01.tar.gz">100402-01.tar.gz</a>
+Synopsis: SunOS 4.1;4.1.1: cron dumps core on what appears to be correct entries
+(32185 bytes)
+<li><a href="100407-09.tar.gz">100407-09.tar.gz</a>
+Synopsis: SunOS 4.1.1; 4.1.2; 4.1.3: accounting jumbo patch
+(147972 bytes)
+<li><a href="100408-01.tar.gz">100408-01.tar.gz</a>
+Synopsis: SunOS 4.1.1: libcurses replacement with all 4.1.1 CTE patches
+(319966 bytes)
+<li><a href="100409-02.tar.gz">100409-02.tar.gz</a>
+Synopsis: AnswerBook 1.3: printing some AnswerBook "books" fail
+(2208 bytes)
+<li><a href="100412-02.tar.gz">100412-02.tar.gz</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2;4.1.3..: applications bind to same port if IP address supplied
+(6424 bytes)
+<li><a href="100413-01.tar.gz">100413-01.tar.gz</a>
+Synopsis: SunOS4.1;4.1.1: tar fills last block of tarfile with unrelated data
+(161304 bytes)
+<li><a href="100414-01.tar.gz">100414-01.tar.gz</a>
+Synopsis: SunOS4.1;4.1.1: programs using pty get output from previous application
+(11681 bytes)
+<li><a href="100416-01.tar.gz">100416-01.tar.gz</a>
+Synopsis: SunOS4.1.1: tip fails can't synchronize with hayes
+(54028 bytes)
+<li><a href="100421-03.tar.gz">100421-03.tar.gz</a>
+Synopsis: SunOS 4.1; 4.1.1 4.1.2 4.1.3
+(245950 bytes)
+<li><a href="100424-01.tar.gz">100424-01.tar.gz</a>
+Synopsis: SunOS 4.1.1; NFS/fsirand security fix. 
+(23538 bytes)
+<li><a href="100425-01.tar.gz">100425-01.tar.gz</a>
+Synopsis: SunOS 4.0.3;4.1;4.1.1: whois gets host unknown when using the hard coded NICHOST
+(4103 bytes)
+<li><a href="100449-01.tar.gz">100449-01.tar.gz</a>
+Synopsis: SunOS4.1;4.1.1: Ex in open mode with '-' option won't display correctly
+(184359 bytes)
+<li><a href="100457-01.tar.gz">100457-01.tar.gz</a>
+Synopsis: SunOS 4.1.1: bar Z option, special chars 'bar tvf rst0' causes segmentation fault.  bar's include file option (I) causes segmentation violation using the *no rewind* tape device and end up writing past EOT
+(174036 bytes)
+<li><a href="100458-03.tar.gz">100458-03.tar.gz</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2;4.1.3: Setitimer sometimes fails to deliver 
+(41883 bytes)
+<li><a href="100465-02.tar.gz">100465-02.tar.gz</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2;4.1.3: DNS res_send() fails if first nameserver in resolv.conf returns ECONNREFUSED
+(5826 bytes)
+<li><a href="100468-03.tar.gz">100468-03.tar.gz</a>
+Synopsis: SunOS4.1.1;4.1.2;4.1.3: rcp/rsh should use setsockopt to detect failed connection rsh uses old-style selects instead of 4.0 selects.
+(210558 bytes)
+<li><a href="100472-02.tar.gz">100472-02.tar.gz</a>
+Synopsis: DNI 7.0 jumbo patch.
+(1866560 bytes)
+<li><a href="100482-06.tar.gz">100482-06.tar.gz</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2;4.1.3: ypserv and ypxfrd fix, plus DNS fix
+(507180 bytes)
+<li><a href="100505-01.tar.gz">100505-01.tar.gz</a>
+Synopsis: SunOS 4.1.1;4.1.2: Zero length directories can be left on system
+(19605 bytes)
+<li><a href="100513-04.tar.gz">100513-04.tar.gz</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: Jumbo tty patch
+Synopsis:  CTE zs driver gates reception on CD during hardware flow control
+(457993 bytes)
+<li><a href="100520-02.tar.gz">100520-02.tar.gz</a>
+Synopsis: SunOS 4.1.1;4.1.2: Cron dies when daylight savings time STARTS/STOPS
+(84970 bytes)
+<li><a href="100527-02.tar.gz">100527-02.tar.gz</a>
+Synopsis: SunOS 4.1.1;4.1.2: rsh uses old-style selects instead of 4.0 selects
+(6992 bytes)
+<li><a href="100549-01.tar.gz">100549-01.tar.gz</a>
+Synopsis: lex/4.1.1: lex core dumps on large input files
+(94627 bytes)
+<li><a href="100556-02.tar.gz">100556-02.tar.gz</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2: cpio data corruption when 2 inodes have same value
+(58889 bytes)
+<li><a href="100567-04.tar.gz">100567-04.tar.gz</a>
+Synopsis: SunOS 4.1,4.1.x: mfree panic due to mbuf being freed twice, icmp redirects can be used to make a host drop connections
+(6824 bytes)
+<li><a href="100570-05.tar.gz">100570-05.tar.gz</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: ie0 ethernet jumbo patch
+(81232 bytes)
+<li><a href="100593-03.tar.gz">100593-03.tar.gz</a>
+Synopsis: SunOS 4.1.3: Security update for dump. 
+(232832 bytes)
+<li><a href="100598-01.tar.gz">100598-01.tar.gz</a>
+Synopsis: LPR/INCORRECT HEADER BANNER
+(84342 bytes)
+<li><a href="100600-01.tar.gz">100600-01.tar.gz</a>
+Synopsis: SunOS 4.1.1;4.1.2: fsck -p  won't check over 31 partitons
+(340966 bytes)
+<li><a href="100619-01.tar.gz">100619-01.tar.gz</a>
+Synopsis: SunOS 4.1.1: make fails w/unexpected EOLN when include split across 8k
+(98009 bytes)
+<li><a href="100620-01.tar.gz">100620-01.tar.gz</a>
+Synopsis: SunOS 4.1.1;4.1.2: Compiler generates incorrect code with -O2 or higher
+(866142 bytes)
+<li><a href="100622-01.tar.gz">100622-01.tar.gz</a>
+Synopsis: 4.1.1: 4.1.1 UFS jumbo patch
+(161297 bytes)
+<li><a href="100630-02.tar.gz">100630-02.tar.gz</a>
+Synopsis: SunOS 4.x: SECURITY: methods to exploit login/su
+(27100 bytes)
+<li><a href="100634-01.tar.gz">100634-01.tar.gz</a>
+Synopsis: Select system call hangs when linked with lnbio & llwp libraries
+(8941 bytes)
+<li><a href="100650-02.tar.gz">100650-02.tar.gz</a>
+Synopsis: 4.1.1,4.1.2,4.1.3: ipcs aborts with "shmctl: Permission denied"
+(9233 bytes)
+<li><a href="100651-01.tar.gz">100651-01.tar.gz</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2: Cron dumps core & Cron dies when daylight savings time STARTS/STOPS
+(78935 bytes)
+<li><a href="100654-01.tar.gz">100654-01.tar.gz</a>
+Synopsis: INSTALLTXT HAS UNDOCUMENTED LIMITS OF TAG SIZE 127 AND MESSAGE SIZE 255
+(28601 bytes)
+<li><a href="100672-01.tar.gz">100672-01.tar.gz</a>
+Synopsis: 4.1.1, 4.1.2: static libc.a missing asynchronous I/O _aiocancel _aioread _aiowait
+(1477 bytes)
+<li><a href="100696-01.tar.gz">100696-01.tar.gz</a>
+Synopsis: 4.1.1;4.1.2;4.1.3: lpr and lprm use the real userid rather than the effective userid
+(87054 bytes)
+<li><a href="100867-01.tar.gz">100867-01.tar.gz</a>
+Synopsis: 4.0.3;4.1;4.1.1;4.1.1_U1: "panic:FPA not enabled" when read(2) nbyte is larger than buf on Sun3x machine
+(18569 bytes)
+<li><a href="100909-03.tar.gz">100909-03.tar.gz</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: Security update for syslogd.  
+(21100 bytes)
+<li><a href="101072-02.tar.gz">101072-02.tar.gz</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: Non-related data filled the last block tarfile
+(173393 bytes)
+<li><a href="101080-01.tar.gz">101080-01.tar.gz</a>
+Synopsis: SunOS 4.1.1 4.1.2 4.1.3: security problem with expreserve
+(7855 bytes)
+<li><a href="101480-01.tar.gz">101480-01.tar.gz</a>
+Synopsis: SunOS 4.1.3: Security update for in.talkd.
+(11155 bytes)
+<li><a href="101481-01.tar.gz">101481-01.tar.gz</a>
+Synopsis: SunOS 4.1.3: Security update for shutdown.
+(19028 bytes)
+<li><a href="101482-01.tar.gz">101482-01.tar.gz</a>
+Synopsis: SunOS 4.1.3, 4.1.2, 4.1.1: Security update for write.
+(11067 bytes)
+<li><a href="101783-02.tar.gz">101783-02.tar.gz</a>
+Synopsis: SunOS 4.1.1;4.1.2: jumbo patch for ld.so, ldd, and ldconfig
+(63765 bytes)
+<li><a href="101817-01.tar.gz">101817-01.tar.gz</a>
+Synopsis: 4.1;4.1.1;4.1.2: rpc.lockd jumbo patch
+(1411506 bytes)
+<li><a href="102231-01.tar.gz">102231-01.tar.gz</a>
+Synopsis: SunOS 4.1.1/4.1.2: NFS Jumbo Patch
+(472551 bytes)
+<li><a href="C++_2.0.tar.gz">C++_2.0.tar.gz</a>
+Synopsis: Allows C++ 2.0 to run under SunOS 4.1.1.
+(866286 bytes)
+<li><a href="SunIPC.tar.gz">SunIPC.tar.gz</a>
+Synopsis: Make SunIPC 1.2 work on SunOS 4.1.1
+(38279 bytes)
+<li><a href="Sun_4.1.1U1.tar.gz">Sun_4.1.1U1.tar.gz</a>
+Synopsis: Update SunOS 4.1.1 to SunOS 4.1.1_U1
+(6072872 bytes)
+</ul>
+<? Include "/export/sun-archive/include/footer.phtml">

@@ -1,0 +1,62 @@
+This Patch provides you with the SunOS 4.1.3 device-drivers for CD-ROM drives.
+It includes the Rock-Ridge format.
+
+This Path is for sun3/3x only!
+
+Important change: Support for Rock-Ridge format in CD-Rom Driver
+
+Install as root with the following commands:
+
+Sun3:
+
+mv /sys/sun3/OBJ/hsfs_node.o /sys/sun3/OBJ/hsfs_node.o.411
+mv /sys/sun3/OBJ/hsfs_subr.o /sys/sun3/OBJ/hsfs_subr.o.411
+mv /sys/sun3/OBJ/hsfs_vfsops.o /sys/sun3/OBJ/hsfs_vfsops.o.411
+mv /sys/sun3/OBJ/hsfs_vnodeops.o /sys/sun3/OBJ/hsfs_vnodeops.o.411
+cp sun3/hsfs_*.o /sys/sun3/OBJ
+
+Sun3x:
+
+mv /sys/sun3x/OBJ/hsfs_node.o /sys/sun3x/OBJ/hsfs_node.o.411
+mv /sys/sun3x/OBJ/hsfs_subr.o /sys/sun3x/OBJ/hsfs_subr.o.411
+mv /sys/sun3x/OBJ/hsfs_vfsops.o /sys/sun3x/OBJ/hsfs_vfsops.o.411
+mv /sys/sun3x/OBJ/hsfs_vnodeops.o /sys/sun3x/OBJ/hsfs_vnodeops.o.411
+cp sun3x/hsfs_*.o /sys/sun3x/OBJ
+
+Common:
+
+mv /usr/include/hsfs /usr/include/hsfs.411
+chmod 000 /usr/include/hsfs.411
+mkdir /usr/include/hsfs
+chmod 755 /usr/include/hsfs
+cp *.h /usr/include/hsfs
+chmod 444 /usr/include/hsfs/*
+
+Edit /sys/conf.common/files.cmn accordingly to this diff:
+
+*** /tmp/files.cmn      Sun Nov 10 06:51:51 1996
+--- /sys/conf.common/files.cmn  Sat Nov  9 19:50:24 1996
+***************
+*** 10,13 ****
+--- 10,16 ----
+  hsfs/hsfs_node.c      optional HSFS
+  hsfs/hsfs_subr.c      optional HSFS
++ hsfs/hsfs_susp.c      optional HSFS
++ hsfs/hsfs_rrip.c      optional HSFS
++ hsfs/hsfs_susp_subr.c optional HSFS
+  hsfs/hsfs_vfsops.c    optional HSFS
+  hsfs/hsfs_vnodeops.c  optional HSFS
+
+Generate a new Kernel:
+
+cd /sys/`arch -k`/conf
+setenv KERNELNAME `cat /etc/motd | sed -e "s/.*(//" | sed -e "s/).*//"`
+config $KERNELNAME
+cd ../$KERNELNAME
+make
+
+Install the new Kernel:
+
+mv /vmunix /vmunix.old
+mv vmunix /
+reboot

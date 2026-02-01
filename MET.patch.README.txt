@@ -1,0 +1,12 @@
+This Patch provides you with a working timezone-info for Middle-Europe.
+
+Important change: New DST for germany works
+
+Sun3:
+
+Install as root with the following commands:
+
+cp /usr/lib/zoneinfo/MET /usr/lib/zoneinfo/MET.ori
+cp MET /usr/lib/zoneinfo
+ATTENTION: Please use cp because these files are hardlinks and then reboot
+           your system.

@@ -1,0 +1,19 @@
+<? Include "/export/sun-archive/include/hdr1incl.phtml">
+<TITLE>Sun3 Misc Patch Archive</TITLE>
+<? Include "/export/sun-archive/include/hdr2incl.phtml">
+<BODY>
+<h1></A>Welcome to the Sun3 Misc Patch Archive</h1>
+This patches are non-official (and I think Non-Sun) but give you a nice 
+addon to your good, old SunOS 4.1.1. I found them somewhere and maybe you 
+find them usefull. I do so!
+<p>
+This archive contains only patches for SunOS 4.1.1 and Sun3/3x 
+architecture only!!!
+<p>
+There's a new section related to Y2000!
+<p>
+<ul>
+<li>Click <a href="list.phtml">here</a> to see the list of patches.
+<li>Click <a href="fetch.phtml">here</a> to retrieve a patch.
+</ul>
+<? Include "/export/sun-archive/include/footer.phtml">

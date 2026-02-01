@@ -1,0 +1,16 @@
+This Patch provides you with a working bar command for the year 2000.
+
+Important change: Fixed date-output for bar command when date is after 31/12/99.
+
+Sun3:
+
+Patch Installation Instructions: 
+
+1) As root, save the original bar file:
+   mv /bin/bar /bin/bar.FCS
+   
+2) Copy the new bar file from the patch directory:
+   cp date /bin/bar
+   
+3) chmod 755 /bin/bar
+   chown root.staff /bin/bar

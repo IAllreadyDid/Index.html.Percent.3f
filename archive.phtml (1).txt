@@ -1,0 +1,43 @@
+<? Include "/export/sun-archive/include/hdr1incl.phtml">
+<TITLE>Sun3 Patch Archive</TITLE>
+<? Include "/export/sun-archive/include/hdr2incl.phtml">
+<BODY>
+<h1></A>Welcome to the Sun3 Patch Archive</h1>
+Now, that Sun has completely dropped the support for the good old
+sun3's, i've grabbed all relevant patches, which i could find for
+sun3, and put them into this place. I fear, that it won't change
+much in the future.
+<p>
+Click <a href="../PALs/copyright.phtml">here</a> to read Sun's copyright notice.
+<p>
+This archive contains only patches for SunOS 4.1.1!!!
+I've not collected any patches for SunOS 4.0.X or 4.1.
+Upgrade your sun3 machines to 4.1.1!
+<p>
+Unfortunately, this archive is not complete. The reasons are:
+<ul>
+<li> Some patches continued to evolve, but the sun3 support was
+     silently dropped. Fortunately, i was often able to find an
+     older version, where a sun3 directory exists.
+<li> a couple of patches were only relevant, if some unbundled 
+     software was installed. These patches (and the software too)
+     are hard to find nowadays.
+<li> Archie couldn't locate a copy of the patch anymore.
+</ul>
+<p>
+If you have one of the missing patches or a newer version of an
+existing patch, please send it to me. If you find a patch here,
+which is NOT relevant (or does have faults!), then give me an
+e-mail too.
+<p>
+You'll notice, that i have a lot more README files than patches
+itself. These are README's of older or missing versions. But in
+some cases, there exists a newer version of the README than of
+the patch. This is generally the case, where the sun3 support
+was silently dropped.
+<p>
+<ul>
+<li>Click <a href="list.phtml">here</a> to see the list of patches.
+<li>Click <a href="fetch.phtml">here</a> to retrieve a patch.
+</ul>
+<? Include "/export/sun-archive/include/footer.phtml">

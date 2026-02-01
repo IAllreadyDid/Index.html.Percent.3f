@@ -1,0 +1,59 @@
+What is resolv+4.9.6
+~~~~~~~~~~~~~~~~~~~~
+
+In short: resolv+4.9.6 adds the features of resolv+2.1.1 to bind 4.9.6.
+
+And here comes the whole story:
+The network programs of SunOS 4.1.1 did not make use of the domain
+name service (short: DNS) without stupid tricks. The first trick
+was the "official" way to do it: You had to run NIS (yp) and to
+enable DNS queries in the /var/yp/Makefile (by adding a -b option).
+This meant: YOU HAD TO RUN NIS. If you ran a site of several Suns,
+this maybe was convenient, but if you had a standalone machine, it
+was a stupid overhead. The other way was even trickier: You had to
+build a new shared library (libc.so) containing a DNS resolver.
+This works, because most network programs are dynamically linked.
+The libresolv.a that Sun shipped with SunOS 4.1.1 could be used.
+
+These tricks had two inherent disadvantages:
+1. The resolver of SunOS 4.1.1 is rather old (bind-4.8.1).
+2. The different databases were queried in a fixed way:
+	If you used NIS, it first queried NIS and if it did not
+	find the host it queried DNS. Only if NIS was unavailable,
+	/etc/hosts was consulted.
+	If you used a shared library with a resolver, it looked
+	up DNS and only if DNS was not available, it consulted
+	/etc/hosts.
+
+resolv+2.1.1 fixed both problems. It used the resolver of bind-4.8.3
+(ok, ok, it's old too, but at least much less buggy than 4.8.1)
+and had a configuration file for setting the query sequence (beside
+other usefull stuff).
+
+Today, bind has evolved to version 4.9.6 and i wanted to have the
+newest resolver. bind-4.9.6 can even create a shared library for
+SunOS 4.1.1, but the query sequence is still fixed (see above).
+
+The fixed sequence of the plain dns resolver means, that it only
+works under special circumstances:
+1. The host needs a correct DNS entry for his real hostname
+2. The host needs a correct DNS entry for localhost (127.0.0.1)
+3. The host needs always internet connectivity to a nameserver
+If that was not given, you could not login or su in multiuser mode
+(the machine complied: hostname is bad)!
+
+These demands are ridiculous and questionable! Say you have the
+following setup: A standalone machine at home which dials into
+the internet via ppp with dynamic ip addresses. It is simply
+impossible to fulfill these demands!
+
+resolv+4.9.6 gives you a recent, decent resolver and adds full
+control over the query sequence. It is of course usable in the
+setup described above and many many others. Exactly: since you
+can even simulate the "old" ways, you do not need anything else
+anymore.
+
+Enjoy resolv+4.9.6!
+
+Peter Koch
+(koch@pz.pirmasens.de)

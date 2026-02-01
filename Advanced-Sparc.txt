@@ -1,0 +1,794 @@
+Subject: Setting up a SPARCstation network on the Internet.
+
+I read the file Setting-up-a-Sparc.txt. This is good for the basics
+but lacks a lot of the more up-to-date info needed in order to get a
+complex system going.
+
+I run this on a SPARCstation 2, with a local net of a further
+SPARCstation 1+, and a dozen or so PCs, which are used as X servers
+over a local Ethernet. I also use NIS locally, and cross-mount NFS
+disks on the two SPARCs, as well as NFS to the PCs. Thus, a lot of
+complex local traffic, and a local net which I don't want advertised
+to the Internet when I'm connected!
+
+We use SunOS 4.1.2.
+
+If you have a unix box, cut the following out and pipe through
+"nroff -e -ms | more", if not, ignore the nroff macros!
+
+Please feel free to correct, embellish or ignore, and excuse my
+awful nroff formatting, I don't have much experience with it.
+
+regards,
+
+Phil.
+MEJ Electronics Ltd.
+phil@mejsun.demon.co.uk
+
+---------------------8<-------------------------8<--------------------
+
+.nr LL 18c
+.pl 29.7c
+.nr PO 2c
+.ND
+.TL
+Connecting a SPARC network to Demon Internet Services
+.AU
+Philip D.P. Brown
+.AI
+MEJ Electronics Ltd.
+.AB
+This short note gives some hints to someone wishing to connect a local
+network to demon.
+.AE
+
+.NH
+Caveat
+
+.PP
+Please Note: No responsibility or liability is implied in any of this
+document.
+
+.NH
+Introduction
+.PP
+I am a much beleaguered System Administrator, my background is really
+hardware not software, so please excuse the quality of any code I have
+included.
+
+.NH
+Getting Started
+.PP
+To get a first link set up please see the file Setting-up-a-Sparc.txt.
+Once this is done you have ftp access on the Internet and the world
+is your oyster!
+
+.NH
+Software you will need
+
+.DS B +5
+dp-2.3		- Dialup-PPP version 2.3
+gated-2.1	- Gated version 2.1
+.DE
+
+.NH
+How to get it
+
+.PP
+To get this software contact src.doc.ic.ac.uk, which is an ftp site,
+ie an on-line database which stores available shareware.  When
+logging in to an ftp site use the login "ftp", then use your Internet
+address (text) as the password.
+
+.NH
+Dialup-PPP
+
+.PP
+I use Dialup-PPP version 2.3. The version at gate isn't yet  up-to-date
+so get a suitable source from src.doc.ic.ac.uk and down-load it.
+The file you need is called  "dp-2.3.tar.Z" and is at present kept in
+/pub/computing/comms/tcpip/ppp-2.2-beta . Uncompress it and extract the
+files from the tar format source. This is a reasonably good piece of
+code, and it has a number of distinct advantages over the basic ppp
+software:
+
+.DS B +5
+a)	- Being Dial-up it connects to demon 'on-demand'.
+b)	- It has 'loadable' streams modules, ie no kernel rebuild!
+c)	- It supports multiple interfaces and 'rotaries'.
+d)	- All configuration info is stored in central files.
+.DE
+
+
+.PP
+I built dp pretty much 'out-of the-box'.
+
+.NH
+Dialup-PPP configuration
+
+.PP
+This is quite easy. My files are as follows:
+
+/etc/dp/conf
+
+.DS B +5
+#
+# PPP Interfaces
+#
+IF=dp0 SYS=gate
+    MODEMS=microlin PHONE=0813434848
+    LOGIN_SCRIPT=gate-login LOGIN_ARGS=mejsun,xxxxxxx LOGIN=ppp
+    TRACE=gate ACCESS=internet
+#
+# Modems
+#
+MODEM=microlin DEV=cua0 BAUD=19200 DIAL_SCRIPT=microlin-dial
+.DE
+
+.PP
+Adjust the above for your local modem needs, and relevant login
+id and password.
+
+/etc/dp/dp-if
+
+.DS B +5
+#
+dp0 mejsun-dp0 gate-dp0
+.DE
+
+.PP
+The above is neat. It means that your interface numbers are set up
+in /etc/hosts, as follows:
+
+/etc/hosts
+
+.DS B +5
+#
+# Sun Host Database
+#
+# If the NIS is running, this file is only consulted when booting
+#
+127.0.0.1	localhost
+#
+# mej network - local, don't advertise
+#
+89.1.2.0	ibmpc0
+89.1.2.1	ibmpc1
+89.1.2.2	ibmpc2
+89.1.2.3	ibmpc3
+89.1.2.4	ibmpc4
+89.1.2.5	ibmpc5
+89.1.2.6	mejsun sun1 loghost mailhost dumphost
+89.1.2.7	ibmpc7
+89.1.2.8	ibmpc8
+89.1.2.9	ibmpc9
+89.1.2.10	ibmpc10
+89.1.2.11	sun2
+89.1.2.12	ibmpc12
+#
+# gateway to Internet
+#
+158.152.1.65	gate gate-dp0
+158.152.8.148	mejsun-gate mejsun sun1 mejsun-dp0
+.DE
+
+.PP
+You will have to adapt the above to your local needs wrt IP
+addresses and hostnames.
+
+.PP
+The following is a bit odd. I used a standard dial script for the
+microlin-dial file (wb-dial), but the login file didn't work.
+The reason is a bug in SCO which requires a delay between the
+login prompt and the login id being returned.
+
+/usr/dp/script/gate-login
+
+.DS B +5
+##
+##  Login to a Unix machine as username $1 with password $2.
+{
+  alternate
+	recv "ogin:" 10
+  alternate
+	log "Sending return to get first login prompt"
+	xmit "\\r"
+	recv "ogin:" 5
+  alternate
+	log "Sending return to get first login prompt"
+	xmit "\\r"
+	recv "ogin:" 5
+  alternate
+	log "Sending break to get first login prompt"
+	xmit "\\#\\r"
+	recv "ogin:" 5
+  alternate
+	log "Sending break to get first login prompt"
+	xmit "\\#"
+	recv "ogin:" 5
+  alternate
+	log "Sending break to get first login prompt"
+	xmit "\\#\\r"
+	recv "ogin:" 5
+}
+## dummy look for word twice to fake a delay
+## this sequence is used below wherever the id is required
+{
+  alternate
+	recv "word:" 3
+  alternate
+	mark
+	xmit "$1\\r"
+}
+{
+  alternate
+	recv "assword:" 35
+  alternate
+	log "Sending break to get second login prompt"
+	xmit "\\#"
+	{
+	  alternate
+		recv "ogin:" 10
+	  alternate
+		log "Sending break to get second login prompt"
+		xmit "\\#"
+		recv "ogin:" 10
+	}
+	{
+	  alternate
+		recv "word:" 3
+	  alternate
+		mark
+		xmit "$1\\r"
+	}
+        {
+          alternate
+        	recv "assword:" 20
+          alternate
+		log "Sending break to get third login prompt"
+        	xmit "\\#"
+        	{
+        	  alternate
+        		recv "ogin:" 10
+        	  alternate
+			log "Sending break to get third login prompt"
+        		xmit "\\#"
+        		recv "ogin:" 10
+        	}
+		{
+		  alternate
+			recv "word:" 3
+		  alternate
+			mark
+			xmit "$1\\r"
+		}
+        	recv "assword:" 10
+        }
+}
+mark
+xmit "$2\\r"
+{
+  alternate
+	recv "otocol:" 20
+	xmit "rfc1172\\r"
+        recv "HELLO" 60
+        go
+  alternate
+	replay
+	recv "ogin: " 5
+  alternate
+	log "Sending break to get login prompt after failed login"
+	xmit "\\#"
+	recv "ogin:" 15
+}
+{
+  alternate
+	recv "word:" 3
+  alternate
+	mark
+	xmit "$1\\r"
+}
+{
+  alternate
+	recv "assword:" 10
+  alternate
+	log "Sending break to get second login prompt after failed login"
+	xmit "\\#"
+	{
+	  alternate
+		recv "ogin:" 10
+	  alternate
+		log "Sending break to get second login prompt after failed login"
+		xmit "\\#"
+		recv "ogin:" 10
+	}
+	{
+	  alternate
+		recv "word:" 3
+	  alternate
+		mark
+		xmit "$1\\r"
+	}
+	recv "assword:" 10
+}
+mark
+xmit "$2\\r"
+recv "otocol:" 20
+xmit "rfc1172\\r"
+recv "HELLO" 60
+go
+.DE
+
+.PP
+The loadable module scripts take care of ifconfig stuff, so all
+that needs to be done is add the startup command to your rc.local
+file as given in the documentation:
+
+.DS B +5
+if [ -f /usr/dp/modules/startdp ] ; then
+	/usr/dp/modules/startdp
+	echo "Starting Dialup PPP Daemon"
+fi
+.DE
+
+.PP
+I put this just before the 'ifconfig -a' command which is there just
+to list all the available interfaces.
+ 
+.PP
+Almost ready to go but....
+
+.NH
+Gated
+
+.PP
+There is a catch to all the above. SunOS uses a network router called
+in.routed, and a routeing protocol called RIP. This all works OK with
+the above except that RIP packets are sent to all known interfaces by
+the router every 30 seconds. Again this is OK, except that with
+Dialup- PPP that means a call to demon every 30 seconds...
+
+.PP
+Therefore, if you want a router, and I do, you have to use something
+else, ie gated.
+
+.NH
+Getting gated
+
+.PP
+This is also available from src.doc.ic.ac.uk, in, at present,
+the file "gated-2.1.tar.Z" in /pub/computing/comms/gated.
+
+.NH
+Using gated
+
+.PP
+I used it straight "out-of-the-box". There is some good documentation,
+although there is one area of complexity I fell over, the gated.conf
+file. This is kept in /etc by default, and I couldn't seem to get
+it right. The problem is that you may get error messages out of
+the initialisation sequence until gated has contacted your default
+gateway machine (gate at demon in this case). You should ignore
+these unless they persist. I got useful help from the program
+authors in the US via email. The documentation for gated includes
+info on how to contact them.
+
+.PP
+My configuration file looks like this:
+
+/etc/gated.conf
+
+.DS B +5
+#
+#	Config file for gated on mejsun
+#
+
+# tracefile "/var/tmp/gated.trace" replace ;
+
+traceoptions internal external route rip update hello icmp kernel ;
+
+interface all passive ; # Don't time out my interfaces
+
+#
+# rip on all but serial interfaces
+#
+
+rip supplier {
+	interface dp0 noripout noripin ;
+} ;
+
+#
+# static routes for PPP links
+#
+
+static {
+	default gateway 158.152.1.65 ; # default interface to gate
+} ;
+
+
+propagate proto rip {
+	#
+	# propagate all learned via rip
+	#
+	proto rip ;
+} ;
+
+.DE
+
+.PP
+The above should work in most cases. To run, just replace the
+in.routed command in rc.local with the gated command.
+
+.NH
+Mail
+
+.PP
+As I have a local net, and don't want any of the local addresses
+or hostnames advertised, I have a rather unusual sendmail.cf file.
+It is based on the standard file /usr/lib/sendmail.subsidiary.cf,
+additions and edits are highlighted by comments starting with
+#> in the following text:
+
+/etc/sendmail.cf
+
+.nr PO 0
+.LD
+#
+#	SENDMAIL CONFIGURATION FILE FOR mejsun
+#
+
+# local UUCP connections -- not forwarded to mailhost
+CV
+
+# my official hostname
+#> in short hostname only format
+Dj$w
+
+#aliases for hostname
+
+Cw sun1 mejsun mailhost
+
+#> MEJ hosts
+#> build a special class of hosts which are on the local net
+#> so that local mail gets different headers from Internet mail,
+#> and local destinations are not advertised to the Internet.
+#> The list is built from the NIS database, though /etc/hosts would do.
+#> hosts.mej.awk is a single line file:
+#> /89.1.2./ {for (i=2;i<=NF;i++) print $i}
+
+FO | ypcat hosts | awk -f /etc/hosts.mej.awk
+
+#> major relay mailer - is the Internet
+DMinet
+
+#> major relay host
+DRpost.demon.co.uk
+CR post.demon.co.uk
+
+#################################################
+#
+#	General configuration information
+
+#> Dm defines outgoing domain name, only used for Internet destinations
+#> Cm defines valid domain names for incoming mail, ie local net and
+#> Internet domain names
+Dmdemon.co.uk
+Cm mej.co.uk demon.co.uk
+
+# Version number of configuration file
+DVSMI-4.1
+
+
+###   Standard macros
+
+# name used for error messages
+DnMailer-Daemon
+# UNIX header format
+DlFrom $g  $d
+# delimiter (operator) characters
+Do.:%@!^=/[]
+#> format of a total name bracketed with <>
+Dq$?x$x <$g@$w.$m>$|$g$.
+# SMTP login message
+De$j Sendmail $v/$V ready at $b
+
+###   Options
+
+# Remote mode - send through server if mailbox directory is mounted
+OR
+# location of alias file
+OA/etc/aliases
+# default delivery mode (deliver in background)
+Odbackground
+# rebuild the alias file automagically
+OD
+# temporary file mode -- 0600 for secure mail, 0644 for permissive
+OF0600
+# default GID
+Og1
+# location of help file
+OH/usr/lib/sendmail.hf
+# log level
+OL9
+# default messages to old style
+Oo
+# Cc my postmaster on error replies I generate
+OPPostmaster
+# queue directory
+OQ/usr/spool/mqueue
+# read timeout for SMTP protocols
+Or15m
+# status file -- none
+OS/etc/sendmail.st
+# queue up everything before starting transmission, for safety
+Os
+# return queued mail after this long
+OT3d
+# default UID
+Ou1
+
+###   Message precedences
+Pfirst-class=0
+Pspecial-delivery=100
+Pjunk=-100
+
+###   Trusted users
+T root daemon uucp
+
+###   Format of headers 
+
+#> explicit header "return path" for Internet mail
+H?P?Return-Path: <$g@$w.$m>
+#> don't advertise local net, therefore no "received from" section
+# HReceived: $?sfrom $s $.by $j.$m ($v/$V)
+#  	id $i; $b
+H?D?Resent-Date: $a
+H?D?Date: $a
+H?F?Resent-From: $q
+H?F?From: $q
+H?x?Full-Name: $x
+HSubject:
+#> explicit header "message ids" for Internet mail
+H?M?Resent-Message-Id: <$t.$i@$w.$m>
+H?M?Message-Id: <$t.$i@$w.$m>
+HErrors-To:
+
+#> special MEJ headers for local mail
+
+H?J?Return-Path-local: <$g>
+H?J?From-local: $g
+H?J?Resent-From-local: $g
+H?J?Resent-Message-Id-local: <$t.$i@$j>
+H?J?Message-Id-local: <$t.$i@$j>
+
+###########################
+###   Rewriting rules   ###
+###########################
+
+
+#  Sender Field Pre-rewriting
+S1
+# None needed.
+
+#  Recipient Field Pre-rewriting
+S2
+# None needed.
+
+# Name Canonicalization
+
+# Internal format of names within the rewriting rules is:
+# 	anything<@host.domain.domain...>anything
+# We try to get every kind of name into this format, except for local
+# names, which have no host part.  The reason for the "<>" stuff is
+# that the relevant host name could be on the front of the name (for
+# source routing), or on the back (normal form).  We enclose the one that
+# we want to route on in the <>'s to make it easy to find.
+# 
+S3
+
+# handle "from:<>" special case
+R$*<>$*			$@@				turn into magic token
+
+# basic textual canonicalization
+R$*<$+>$*		$2				basic RFC822 parsing
+
+# make sure <@a,@b,@c:user@d> syntax is easy to parse -- undone later
+R@$+,$+:$+		@$1:$2:$3			change all "," to ":"
+R@$+:$+			$@$>6<@$1>:$2			src route canonical
+
+R$+:$*;@$+		$@$1:$2;@$3			list syntax
+R$+@$+			$:$1<@$2>			focus on domain
+R$+<$+@$+>		$1$2<@$3>			move gaze right
+R$+<@$+>		$@$>6$1<@$2>			already canonical
+
+# convert old-style names to domain-based names
+# All old-style names parse from left to right, without precedence.
+R$-!$+			$@$>6$2<@$1.uucp>		uucphost!user
+R$-.$+!$+		$@$>6$3<@$1.$2>			host.domain!user
+R$+%$+			$@$>3$1@$2			user%host
+
+#  Final Output Post-rewriting 
+S4
+R$+<@$+.uucp>		$2!$1				u@h.uucp => h!u
+R$+			$: $>9 $1			Clean up addr
+R$*<$+>$*		$1$2$3				defocus
+
+
+#  Clean up an name for passing to a mailer
+#  (but leave it focused)
+S9
+R$=w!@			$@$w!$n				
+R@			$@$n				handle <> error addr
+R$*<$*LOCAL>$*		$1<$2$m>$3			change local info
+R<@$+>$*:$+:$+		<@$1>$2,$3:$4			<route-addr> canonical
+
+
+#######################
+#   Rewriting rules
+
+# special local conversions
+S6
+R$*<@$*$=m>$*		$1<@$2LOCAL>$4			convert local domain
+
+# Local and Program Mailer specification
+#> add J option to define MEJ headers, and delete F,M and P
+
+Mlocal,	P=/bin/mail, F=rlsDJmn, S=10, R=20, A=mail -d $u
+Mprog,	P=/bin/sh,   F=lsDJeu,  S=10, R=20, A=sh -c $u
+
+S10
+# None needed.
+
+S20
+# None needed.
+
+############################################################
+#####
+#####		Ethernet Mailer specification
+#####
+#####	Messages processed by this configuration are assumed to remain
+#####	in the same domain.  This really has nothing particular to do
+#####   with Ethernet - the name is historical.
+
+#> add J option to define MEJ headers, and delete F and M
+#> don't add hostname, we don't care
+
+Mether,	P=[TCP], F=msDJuCX, S=21, R=21, A=TCP $h
+
+S21
+# None needed.
+
+##########################################################
+#  General code to convert back to old style UUCP names
+S5
+R$+<@LOCAL>		$@ $w!$1		name@LOCAL => sun!name
+R$+<@$-.LOCAL>		$@ $2!$1		u@h.LOCAL => h!u
+R$+<@$+.uucp>		$@ $2!$1		u@h.uucp => h!u
+R$+<@$*>		$@ $2!$1		u@h => h!u
+# Route-addrs do not work here.  Punt til uucp-mail comes up with something.
+R<@$+>$*		$@ @$1$2		just defocus and punt
+R$*<$*>$*		$@ $1$2$3		Defocus strange stuff
+
+#	UUCP Mailer specification
+
+Muucp,	P=/usr/bin/uux, F=msDFMhuU, S=13, R=23,
+	A=uux - -r -a$f $h!rmail ($u)
+
+# Convert uucp sender (From) field
+S13
+R$+			$:$>5$1				convert to old style
+R$=w!$+			$2				strip local name
+R$+			$:$w!$1				stick on real host name
+
+# Convert uucp recipient (To, Cc) fields
+S23
+R$+			$:$>5$1				convert to old style
+##############################################
+#> gate Internet mailer
+#> as many Internet mail hosts bounce messages > 100k, bounce
+#> them locally to save time
+
+Minet,	P=[TCP], F=mnDFMpuLX, S=22, R=21, A=TCP $h, M=100000
+
+#> The following is a ruleset to handle the local MEJ network
+#> and build the correct Internet sending hostname
+
+S22
+R$*<@LOCAL>$*		$:$1
+R$+<@$-.LOCAL>$*	$1 $3		if local domain strip
+R$+<@$+.$*>$*		$@<$1@$2.$3>$4		already ok
+R$+<@$+>$*		$@<$1@$2.$m>$3		tack on our domain
+R$-			$@<$1@$j.$m>		tack on our host.domain
+
+#####		RULESET ZERO PREAMBLE
+
+# Ruleset 30 just calls rulesets 3 then 0.
+S30
+R$*			$: $>3 $1			First canonicalize
+R$*			$@ $>0 $1			Then rerun ruleset 0
+
+S0
+# On entry, the address has been canonicalized and focused by ruleset 3.
+# Handle special cases.....
+R@			$#local $:$n			handle <> form
+# Earlier releases special-cased the [x.y.z.a] format, but SunOS 4.1 or later
+# should handle these properly on input.
+
+# now delete redundant local info
+R$*<$*$=w.LOCAL>$*	$1<$2>$4			thishost.LOCAL
+R$*<@LOCAL>$*		$1<@$m>$2			host == domain gateway
+R$*<$*$=w.uucp>$*	$1<$2>$4			thishost.uucp
+R$*<$*$=w>$*		$1<$2>$4			thishost
+
+# arrange for local names to be fully qualified
+#> and append MEJ to local destinations
+R$*<@$%y>$*		$1<@$2.LOCAL>$3			user@etherhost
+R$*<@$=O.LOCAL>$*	$1<@$2.MEJ>$3			user@etherhost.MEJ
+
+# For numeric spec, you can't pass spec on to receiver, since old rcvr's
+# were not smart enough to know that [x.y.z.a] is their own name.
+R<@[$+]>:$*		$:$>9 <@[$1]>:$2		Clean it up, then...
+R<@[$+]>:$*		$#ether $@[$1] $:$2		numeric internet spec
+R<@[$+]>,$*		$#ether $@[$1] $:$2		numeric internet spec
+R$*<@[$+]>		$#ether $@[$2] $:$1		numeric internet spec
+
+R$*<$*.>$*		$1<$2>$3			drop trailing dot
+R<@>:$*			$@$>30$1			retry after route strip
+R$*<@>			$@$>30$1			strip null trash & retry
+
+
+################################################
+###  Machine dependent part of ruleset zero  ###
+################################################
+
+# resolve names we can handle locally
+R<@$=V.uucp>:$+		$:$>9 $1			First clean up, then...
+R<@$=V.uucp>:$+		$#uucp  $@$1 $:$2		@host.uucp:...
+R$+<@$=V.uucp>		$#uucp  $@$2 $:$1		user@host.uucp
+
+# optimize names of known ethernet hosts
+#> and send local messages via local mailer
+R$*<@$%y.MEJ>$*		$#ether $@$2 $:$1<@$2>$3	user@host.MEJ
+#> send local Internet messages via Internet mailer
+R$*<@$%y.LOCAL>$*	$#inet $@$2 $:$1<@$2>$3		user@host.remote
+
+# other non-local names will be kicked upstairs
+R$+			$:$>9 $1			Clean up, keep <>
+#> send Internet stuff to the Internet
+R$*<@$+>$*		$#inet   $@$R $:$1<@$2>$3	user@some.where
+R$*@$*			$#$M    $@$R $:$1<@$2>		strangeness with @
+
+# Local names with % are really not local!
+R$+%$+			$@$>30$1@$2			turn % => @, retry
+
+# everything else is a local name
+R$+			$#local $:$1			local names
+.DE
+
+.nr PO 2c
+.PP
+WARNING! I haven't done anything about uucp, so that part may well not
+work. I don't use uucp, once on the Internet why would you?
+
+.NH
+ADDENDA
+
+.PP
+I am now using Morning Star PPP, seems good and... I get support!
+Demon don't like dp - but I don't have any real evidence for
+their bias - I suspect that they may have had a bad experience
+on a non-Sun based machine.
+
+.PP
+I am also a registered domain "mej-uk.com", which incurred some
+setup problems, but my local net is now legal. If you are a
+registered domain you can get your gateway machine to accept mail
+directed at user@domain (no machine name) with the following
+change to sendmail.cf:
+
+.DS B +5
+R$*<@LOCAL>$*		$1<@$m>$2	host == domain gateway
+changes to :
+
+R$*<@LOCAL>$*		$1<@$w>$2	host == domain gateway
+.DE

@@ -1,0 +1,27 @@
+This Patch fixes several problems with tmpfs.
+
+This Patch is for sun3 only (crashes sun3x)!
+
+Important change: The tmpfs jumbo-patch is integrated and the 8lgm-reported
+problem from 11/11/94 is fixed. You don't need to make the workaround
+mentioned there.
+
+Install as root with the following commands:
+
+foreach i (*.o)
+	mv /sys/`arch -k`/OBJ/$i /sys/`arch -k`/OBJ/$i.411
+end
+cp *.o /sys/`arch -k`/OBJ
+
+Generate a new Kernel:
+
+cd /sys/`arch -k`/conf
+setenv KERNELNAME `cat /etc/motd | sed -e "s/.*(//" | sed -e "s/).*//"`
+config $KERNELNAME
+cd ../$KERNELNAME
+make
+
+Install the new Kernel:
+mv /vmunix /vmunix.old
+mv vmunix /
+reboot

@@ -1,0 +1,734 @@
+<? Include "/export/sun-archive/include/hdr1incl.phtml">
+<title>Sun3 Patch List</title>
+<? Include "/export/sun-archive/include/hdr2incl.phtml">
+<body>
+<h1>Sun3 Patches</h1><hr>
+<ul>
+<li><a href="100058-03.README">100058-03.README</a>
+Synopsis:SunOS 4.1.1;4.1;4.0.3:Cron scheduling and queue errors; may run jobs twice
+<li><a href="100071-01.README">100071-01.README</a>
+Synopsis:  Sunview does not support 256 file descriptors.
+<li><a href="100072-01.README">100072-01.README</a>
+Synopsis: The modload(8) utility does not recognize the "vector" keyword
+<li><a href="100074-01.README">100074-01.README</a>
+Synopsis: Pages of one file appear in another.
+<li><a href="100075-04.README">100075-04.README</a>
+Synopsis: lockd problems in 4.1 and 4.0.3
+<li><a href="100075-05.README">100075-05.README</a>
+Synopsis: lockd problems in 4.1 and 4.0.3
+<li><a href="100075-06.README">100075-06.README</a>
+Synopsis: lockd problems in 4.1.1 4.1 and 4.0.3
+<li><a href="100075-07.README">100075-07.README</a>
+Synopsis: lockd problems in 4.1.1 4.1 and 4.0.3
+<li><a href="100075-08.README">100075-08.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2: lockd jumbo patch
+<li><a href="100075-09.README">100075-09.README</a>
+Synopsis: 4.1;4.1.1;4.1.2;4.1.3: rpc.lockd jumbo patch
+<li><a href="100075-10.README">100075-10.README</a>
+Synopsis: 4.1;4.1.1;4.1.2;4.1.3: rpc.lockd jumbo patch
+<li><a href="100075-11.README">100075-11.README</a>
+Synopsis: 4.1;4.1.1;4.1.2;4.1.3: rpc.lockd jumbo patch
+<li><a href="100076-01.README">100076-01.README</a>
+Synopsis: Pages stolen after Copy On Write
+<li><a href="100082-01.README">100082-01.README</a>
+Synopsis: "tas" data fault treated as a read operation durring pagefault.
+<li><a href="100089-06.README">100089-06.README</a>
+Synopsis: SunOS 4.1:fixes for various tmpfs bugs 
+<li><a href="100090-01.README">100090-01.README</a>
+Synopsis:writing to an PROT_READ area is giving SIGBUS not SIGSEGV
+<li><a href="100098-03.README">100098-03.README</a>
+Synopsis: multiple fixes: 16k record limit; yacc;lex symbol name clash
+<li><a href="100101-02.README">100101-02.README</a>
+Synopsis: fix for PTRACE_ATTACH security bug
+<li><a href="100103-01.README">100103-01.README</a>
+Synopsis: Shell script to be run on 4.1 systems to change file permissions
+<li><a href="100103-06.README">100103-06.README</a>
+Synopsis: SunOS 4.1.1, 4.1:script to change file permissions to a more secure mode
+<li><a href="100103-08.README">100103-08.README</a>
+Synopsis: SunOS 4.1.1, 4.1:script to change file permissions to a more secure mode
+<li><a href="100103-09.README">100103-09.README</a>
+Synopsis: SunOS 4.1.1, 4.1:script to change file permissions to a more secure mode
+<li><a href="100103-10.README">100103-10.README</a>
+Synopsis: SunOS 4.1.1, 4.1:script to change file permissions to a more secure mode
+<li><a href="100103-11.README">100103-11.README</a>
+Synopsis: SunOS 4.1, 4.1.1, 4.1.2, 4.1.3: script to change file permissions to a more secure mode
+<li><a href="100103-12.README">100103-12.README</a>
+Synopsis: SunOS 4.1.3;4.1.3_U1: set file permissions to more secure mode
+<li><a href="100106-02.README">100106-02.README</a>
+Synopsis: SunLink X.25 : fixes many x25 and x29 bugs.	
+<li><a href="100120-01.README">100120-01.README</a>
+Synopsis: TLI Jumbo patch.
+<li><a href="100120-04.README">100120-04.README</a>
+Synopsis: SunOS 4.1: TLI Jumbo patch.
+<li><a href="100121-04.README">100121-04.README</a>
+Synopsis: 4.1 NFS Jumbo Patch(1)
+<li><a href="100121-05.README">100121-05.README</a>
+Synopsis: 4.1 NFS Jumbo Patch(1)
+<li><a href="100121-08.README">100121-08.README</a>
+Synopsis: 4.1 NFS Jumbo Patch(1)
+<li><a href="100121-09.README">100121-09.README</a>
+Synopsis: 4.1 NFS Jumbo Patch
+<li><a href="100125-02.README">100125-02.README</a>
+Synopsis: SunOS 4.1, 4.1.1 :after telnet session aborts, new session gets pervious output
+<li><a href="100125-03.README">100125-03.README</a>
+Synopsis: SunOS 4.0.3,4.1,4.1.1:after telnet session aborts, new session gets pervious output
+<li><a href="100125-05.README">100125-05.README</a>
+Synopsis: SunOS 4.0.3,4.1,4.1.1:after telnet session aborts, new session gets previous output
+<li><a href="100126-04.README">100126-04.README</a>
+Synopsis: SunOS4.1 SunOS4.1_PSR_A SunOS4.1.1 SunOS4.0.3  MBUF PATCH
+<li><a href="100126-05.README">100126-05.README</a>
+Synopsis: SunOS4.1 SunOS4.1_PSR_A SunOS4.1.1 SunOS4.0.3  MBUF PATCH
+<li><a href="100128-01.README">100128-01.README</a>
+Synopsis: Fdformat for SunOS and DosWindows on a 3/80 system
+<li><a href="100128-02.README">100128-02.README</a>
+Synopsis: SunOS 4.1.1,4.1: multiple fixes to Sun3x floppy driver. 
+ Synopsis: floppy on 3/80 can be put into a weird state returns Device busy
+<li><a href="100130-01.README">100130-01.README</a>
+Synopsis: use command not working for dbx and dbxtool
+<li><a href="100133-01.README">100133-01.README</a>
+Synopsis: sendmail yp aliasing does not work with non sun yp masters
+<li><a href="100137-01.README">100137-01.README</a>
+Synopsis: ALM flow control patch
+<li><a href="100141-01.README">100141-01.README</a>
+Synopsis: nres_gethostbyaddr logs misleading messages to console
+<li><a href="100141-02.README">100141-02.README</a>
+Synopsis: SunOS 4.1: nres_gethostbyaddr logs misleading messages to console
+<li><a href="100141-03.README">100141-03.README</a>
+Synopsis: SunOS 4.1;4.1.1: nres_gethostbyaddr logs misleading messages to console
+<li><a href="100147-01.README">100147-01.README</a>
+Synopsis:ifconfig xpkt0 causes system crash
+<li><a href="100149-01.README">100149-01.README</a>
+Synopsis: SunOS 4.1 and 4.1.1: system crashes with mclput panic
+<li><a href="100149-03.README">100149-03.README</a>
+Synopsis: SunOS 4.1 and 4.1.1: system crashes with mclput panic
+<li><a href="100153-01.README">100153-01.README</a>
+Synopsis: SunOS use command not working for dbx and dbxtool
+<li><a href="100155-03.README">100155-03.README</a>
+Synopsis: prs_relrop renders incorrectly on cg3 and cg4 framebuffers
+<li><a href="100159-01.README">100159-01.README</a>
+Synopsis: SunOS 4.1, 4.1.1:system hangs using sockets in local loopback tcp-ip
+<li><a href="100160-01.README">100160-01.README</a>
+Synopsis: Unbundled C 1.0: cc dies with yacc stack overflow
+<li><a href="100170-02.README">100170-02.README</a>
+Synopsis: SunOS 4.1;jumbo patch to fix various ld problems 
+<li><a href="100170-06.README">100170-06.README</a>
+Synopsis: SunOS 4.1 4.1.1;jumbo patch to fix various ld problems
+<li><a href="100170-08.README">100170-08.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2: jumbo patch to fix various ld problems
+<li><a href="100170-09.README">100170-09.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2;4.1.3: jumbo patch to fix various ld problems
+<li><a href="100170-10.README">100170-10.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2;4.1.3: jumbo patch to fix various ld problems
+<li><a href="100171-01.README">100171-01.README</a>
+Synopsis: Channel 7.0: Channel kernel compilation for sun3x fails.
+<li><a href="100172-04.README">100172-04.README</a>
+Synopsis: FDDI 1.1: fddi problems with SunOS 4.1.1, 4.1, 4.0.3
+<li><a href="100173-03.README">100173-03.README</a>
+Synopsis: 4.1.1 NFS Jumbo Patch
+<li><a href="100173-06.README">100173-06.README</a>
+Synopsis: SunOS 4.1.1: NFS Jumbo Patch
+<li><a href="100173-07.README">100173-07.README</a>
+Synopsis: SunOS 4.1.1: NFS Jumbo Patch
+<li><a href="100173-08.README">100173-08.README</a>
+Synopsis: SunOS 4.1.1/4.1.2 : NFS Jumbo Patch
+<li><a href="100173-09.README">100173-09.README</a>
+Synopsis: SunOS 4.1.1/4.1.2/4.1.3 : NFS Jumbo Patch
+<li><a href="100173-10.README">100173-10.README</a>
+Synopsis: SunOS 4.1.1/4.1.2/4.1.3 : NFS Jumbo Patch
+<li><a href="100174-01.README">100174-01.README</a>
+Synopsis: SunOS 4.1.1: fixes for tmpfs bugs.
+<li><a href="100174-05.README">100174-05.README</a>
+Synopsis: SunOS 4.1.1: fixes for 8 tmpfs bugs.
+<li><a href="100174-06.README">100174-06.README</a>
+Synopsis: SunOS 4.1.1: fixes for many tmpfs bugs.
+<li><a href="100175-01.README">100175-01.README</a>
+Synopsis: SunOS MLS 1.0: pw_rop has an assertion problem when run after pw_stencil.
+<li><a href="100176-10.README">100176-10.README</a>
+Synopsis: OpenWindows 2.0: Patch release 2008-09 for X11-NeWS server
+<li><a href="100176-15.README">100176-15.README</a>
+Synopsis: OpenWindows 2.0: Patch release 2008-19 for X11-NeWS server
+<li><a href="100176-20.README">100176-20.README</a>
+Synopsis: OpenWindows 2.0: Patch release 2008-27 for X11-NeWS server
+<li><a href="100177-01.README">100177-01.README</a>
+Synopsis: SunOS 4.1: quotas and heavy system load.
+<li><a href="100178-06.README">100178-06.README</a>
+Synopsis: SunOS4.0.3;4.1;4.1.1: inetd "broken server detection" breaks on fast machines
+<li><a href="100178-07.README">100178-07.README</a>
+Synopsis: SunOS4.0.3;4.1;4.1.1;4.1.2;4.1.3: inetd "broken server detection" breaks on fast machines
+<li><a href="100178-08.README">100178-08.README</a>
+Synopsis: SunOS4.1.1;4.1.2;4.1.3: inetd "broken server detection" breaks on fast machines
+<li><a href="100178-09.README">100178-09.README</a>
+Synopsis: SunOS4.1.1;4.1.2;4.1.3: inetd "broken server detection" breaks on fast machines
+<li><a href="100179-01.README">100179-01.README</a>
+Synopsis: SunOS 4.1.1:polling not working correctly
+<li><a href="100180-03.README">100180-03.README</a>
+Synopsis: cpp: cc option -I does not work for more than 47 paths
+<li><a href="100184-02.README">100184-02.README</a>
+Synopsis: Openwindows 2.0: sv_xv_sel_svc and rpc can be used to gain access to system files
+<li><a href="100185-01.README">100185-01.README</a>
+Synopsis: /etc/rc.local can be used to destroy passwd
+<li><a href="100186-01.README">100186-01.README</a>
+Synopsis:system crashes with panic data fault when sending icmp error
+<li><a href="100187-01.README">100187-01.README</a>
+Synopsis: SunOS 4.1& 4.1_PSR_A: TIOCCONS redirection is a security violation
+<li><a href="100188-01.README">100188-01.README</a>
+Synopsis: SunOS 4.1.1: TIOCCONS redirection is a security violation.
+<li><a href="100188-02.README">100188-02.README</a>
+Synopsis: SunOS 4.1.1;4.1.2: pty can get output from another application
+<li><a href="100191-02.README">100191-02.README</a>
+Synopsis: dbx core dumps when sourcing files with aliases
+<li><a href="100192-01.README">100192-01.README</a>
+Synopsis: SunOS4.1.1: colormap is not correct when 128 colors are used.
+<li><a href="100192-02.README">100192-02.README</a>
+Synopsis: SunOS 4.1.x: colormap is not correct when 128 colors are used.
+<li><a href="100198-01.README">100198-01.README</a>
+<li><a href="100199-01.README">100199-01.README</a>
+Synopsis: TLI Jumbo patch.
+<li><a href="100199-03.README">100199-03.README</a>
+Synopsis: SunOS 4.1.1 :TLI Jumbo patch.
+<li><a href="100201-02.README">100201-02.README</a>
+Synopsis: SunOS 4.1, SunOS 4.1_PSR_A  4.1.1: c2 jumbo patch
+<li><a href="100201-03.README">100201-03.README</a>
+Synopsis: SunOS 4.1, SunOS 4.1_PSR_A  4.1.1: c2 jumbo patch
+<li><a href="100201-04.README">100201-04.README</a>
+Synopsis: SunOS 4.1, SunOS 4.1_PSR_A  4.1.1: c2 jumbo patch
+<li><a href="100201-06.README">100201-06.README</a>
+Synopsis: 4.1, 4.1_PSR_A, 4.1.1: c2 jumbo patch
+<li><a href="100203-01.README">100203-01.README</a>
+Synopsis: SunOS 4.1.1: fcvt() causes segmentation fault with INGRES databases
+<li><a href="100207-01.README">100207-01.README</a>
+Synopsis: SunOS 4.1.1:"boot" works for 1st disk controller only
+<li><a href="100210-01.README">100210-01.README</a>
+Synopsis: SunOS 4.1.1: sunview bugid 1028856 - Defaults not reading the master Database
+<li><a href="100211-02.README">100211-02.README</a>
+Synopsis: SunOS 4.1, 4.1.1: tape synchronization lost when interrupted
+<li><a href="100215-01.README">100215-01.README</a>
+Synopsis: SunLink X.25 : fixes many x25 and x29 bugs.	
+<li><a href="100217-01.README">100217-01.README</a>
+Synopsis: mounting certain iso 9660 cd's succeed but directory becomes data
+<li><a href="100224-02.README">100224-02.README</a>
+Synopsis: program "mail" "rmail" problem in delivering mail + security enhancement
+<li><a href="100224-03.README">100224-03.README</a>
+Synopsis: SunOS 4.1.1;4.1.2: program "mail" "rmail" problem in delivering mail
+<li><a href="100224-06.README">100224-06.README</a>
+Synopsis: SunOS 4.1.1,4.1.2,4.1.3: program "mail" "rmail" problem in delivering mail; mail signal handlers cause recursing buss errors
+<li><a href="100224-07.README">100224-07.README</a>
+Synopsis: SunOS 4.1.1,4.1.2,4.1.3: /bin/mail jumbo patch 
+<li><a href="100224-13.README">100224-13.README</a>
+Synopsis: SunOS 4.1.1,4.1.2,4.1.3: /bin/mail jumbo patch
+<li><a href="100225-02.README">100225-02.README</a>
+Synopsis: SunOS 4.1, 4.1.1, 4.1_PSR_A :printers, terminals, plotters, hang on serial and ALM2 ports.
+<li><a href="100228-02.README">100228-02.README</a>
+Synopsis: SunOS 4.1, 4.1.1 :Kernel panic: psig on exiting sunview or psig action
+<li><a href="100229-01.README">100229-01.README</a>
+Synopsis: gpone device : pr_open:  failed to open device fb
+<li><a href="100233-01.README">100233-01.README</a>
+Synopsis: SunOS 4.1 4.1.1: Mouse tracking is lost
+<li><a href="100234-01.README">100234-01.README</a>
+Synopsis: SunOS 4.1 :System panics when accounting is used 
+<li><a href="100236-01.README">100236-01.README</a>
+Synopsis:SunOS 4.1.1:cxref fails in handling struct bit fields larger than 16 bits
+<li><a href="100240-01.README">100240-01.README</a>
+Synopsis: SunOS 4.1.1: version "make" takes longer than 4.0.3 to process archives.
+<li><a href="100241-02.README">100241-02.README</a>
+Synopsis: SNA3270: Type 4 keyboard patch for SunLink SNA3270 product. BAKTAB
+<li><a href="100242-02.README">100242-02.README</a>
+Synopsis: SunLink: UNBIND with PCID control vector is rejected sense code 1003
+<li><a href="100244-02.README">100244-02.README</a>
+Synopsis: Kernel panic when 'nchanmap'==100 & panic data fault when using 'lwp'.
+<li><a href="100245-01.README">100245-01.README</a>
+Synopsis: Open Windows: 2.0 banding bug label centering bug
+<li><a href="100246-01.README">100246-01.README</a>
+Synopsis: Open Windows: 2.0 - panel buttons fail when multiple server
+<li><a href="100246-02.README">100246-02.README</a>
+Synopsis: OW 2.0: Panel button in monochrome causes core dump 
+<li><a href="100247-18.README">100247-18.README</a>
+Synopsis: OW 2.0: XVIEW/2.0 CTE Jumbo Patch
+<li><a href="100247-21.README">100247-21.README</a>
+Synopsis: OpenWindows 2.0: XVIEW/2.0 CTE Jumbo Patch
+<li><a href="100249-03.README">100249-03.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2: automounter JUMBO patch
+<li><a href="100249-04.README">100249-04.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2,4.1.3: automounter jumbo patch
+<li><a href="100249-06.README">100249-06.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2,4.1.3: automounter jumbo patch
+<li><a href="100249-07.README">100249-07.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2,4.1.3: automounter jumbo patch
+<li><a href="100249-08.README">100249-08.README</a>
+Synopsis: SunOS 4.1.1;4.1.2,4.1.3: automounter jumbo patch
+<li><a href="100250-01.README">100250-01.README</a>
+Synopsis: SunOS 4.1.1: FSR-BSR on the old SCSI tape driver fail
+<li><a href="100251-01.README">100251-01.README</a>
+Synopsis: SunOS 4.1,4.1.1:/usr/lib/expreserve race condition
+<li><a href="100252-01.README">100252-01.README</a>
+Synopsis: dbx:4.1.1: print of a large struct overflows stack
+<li><a href="100253-01.README">100253-01.README</a>
+Synopsis: NSE1.2.2: resync and missing childs catname fixes.
+<li><a href="100254-01.README">100254-01.README</a>
+Synopsis: SunOS 4.1,4.1.1:panic: ttcompat: unexpected ioctl acknowledgment
+<li><a href="100254-02.README">100254-02.README</a>
+Synopsis: SunOS 4.0.3, 4.1,4.1.1:panic: ttcompat: unexpected ioctl acknowledgment
+<li><a href="100255-01.README">100255-01.README</a>
+Synopsis: SunOS 4.1, 4.1.1:xdballoc: out of dblks, then a "printf" to hangs system
+<li><a href="100256-01.README">100256-01.README</a>
+Synopsis: SunOS 4.1, 4.1.1 :pax gets into infinite loop at EOF when writting to cartridge tape
+<li><a href="100257-02.README">100257-02.README</a>
+Synopsis: ld.so;4.1.1: jumbo patch for ld.so, ldd, and ldconfig
+<li><a href="100257-03.README">100257-03.README</a>
+Synopsis: SunOS 4.1.1: jumbo patch for ld.so, ldd, and ldconfig
+<li><a href="100257-04.README">100257-04.README</a>
+Synopsis: SunOS 4.1.1;4.1.2: jumbo patch for ld.so, ldd, and ldconfig
+<li><a href="100257-05.README">100257-05.README</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: jumbo patch for ld.so, ldd, and ldconfig
+<li><a href="100259-01.README">100259-01.README</a>
+Synopsis: SunOS 4.1.1: ufs_inactive patch
+<li><a href="100259-03.README">100259-03.README</a>
+Synopsis: SunOS 4.1.1: ufs_inactive patch
+<li><a href="100262-01.README">100262-01.README</a>
+Synopsis: SunOS 4.1.1:st driver can panic with divide by zero in stclose()
+<li><a href="100265-01.README">100265-01.README</a>
+Synopsis: SunOS 4.1.1:writing to a PROT_READ area is giving SIGBUS not SIGSEGV
+<li><a href="100266-04.README">100266-04.README</a>
+Synopsis: libc:4.1.1: libc replacement with all 4.1.1 CTE patches to date
+<li><a href="100266-05.README">100266-05.README</a>
+Synopsis: SunOS 4.1.1: libc replacement with all 4.1.1 CTE patches to date
+<li><a href="100266-06.README">100266-06.README</a>
+Synopsis: SunOS 4.1.1: libc replacement with all 4.1.1 CTE patches to date
+<li><a href="100266-07.README">100266-07.README</a>
+Synopsis: SunOS 4.1.1: Domestic libc replacement with all 4.1.1 patches to date
+<li><a href="100266-08.README">100266-08.README</a>
+Synopsis: SunOS 4.1.1: Domestic libc replacement with all 4.1.1 patches to date
+<li><a href="100267-05.README">100267-05.README</a>
+Synopsis: SunOS 4.1.1: libc replacement with all 4.1.1 CTE patches to date
+<li><a href="100267-08.README">100267-08.README</a>
+Synopsis: SunOS 4.1.1: international libc replacement with all 4.1.1 patches
+<li><a href="100267-09.README">100267-09.README</a>
+Synopsis: SunOS 4.1.1: international libc replacement with all 4.1.1 patches
+<li><a href="100268-02.README">100268-02.README</a>
+Synopsis: colldef/4.1.1: several fixes to /usr/etc/colldef
+<li><a href="100269-01.README">100269-01.README</a>
+Synopsis: SunOS 4.1.1:'bar tvf rst0' causes segmentation fault
+<li><a href="100269-02.README">100269-02.README</a>
+Synopsis: SunOS 4.1.1:'bar tvf rst0' causes segmentation fault
+<li><a href="100271-01.README">100271-01.README</a>
+Synopsis: SunLink SNA3270 6.1:Form control characters are not handled properly. 
+<li><a href="100272-02.README">100272-02.README</a>
+Synopsis: SunOS 4.1.1 in.comsat daemon fails with 8-character login names
+<li><a href="100272-04.README">100272-04.README</a>
+Synopsis: SunOS 4.1.1 in.comsat daemon fails with 8-character login names
+<li><a href="100272-05.README">100272-05.README</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3 in.comsat daemon fails with 8-character login names
+<li><a href="100272-06.README">100272-06.README</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3 in.comsat daemon fails with 8-character login names
+<li><a href="100272-07.README">100272-07.README</a>
+Synopsis: SunOS 4.1.3: Security update for in.comsat.  
+<li><a href="100273-01.README">100273-01.README</a>
+Synopsis: SunOS 4.1,4.1.1,4.1_PSR_A: "panic: hat_ptesync - invalid pme" 
+<li><a href="100274-02.README">100274-02.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2: dup biodone related panics
+<li><a href="100278-03.README">100278-03.README</a>
+Synopsis: SUnNetManager 1.1: New version of SunNet manager that fixes various bugs
+<li><a href="100279-01.README">100279-01.README</a>
+Synopsis: SunOS 4.1.1: msgdsize, message block b_datap pointers are getting corrupted
+<li><a href="100280-02.README">100280-02.README</a>
+Synopsis: SunOS 4.1.1: st jumbo patch for 4.1.1
+<li><a href="100281-01.README">100281-01.README</a>
+Synopsis: SunOS 4.1.1, 4.1:NFS servers freezing, system looks like it crashed
+<li><a href="100283-03.README">100283-03.README</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: in.routed mishandles gateways, multiple 
+<li><a href="100286-01.README">100286-01.README</a>
+Synopsis: SunOS 4.1.1 sort fails with n option on second field0---
+<li><a href="100286-02.README">100286-02.README</a>
+Synopsis: SunOS 4.1.1: sort fails with n option on second field0---
+<li><a href="100287-04.README">100287-04.README</a>
+Synopsis: PC-NFS 3.5c jumbo patch
+<li><a href="100287-05.README">100287-05.README</a>
+Synopsis: PC-NFS 3.5c jumbo patch (updated PRT.COM to v3.5c)
+<li><a href="100289-01.README">100289-01.README</a>
+Synopsis: SunOS 4.1.1 mounting DOS low density floppy doesn't work.
+<li><a href="100291-03.README">100291-03.README</a>
+Synopsis: SunOS 4.1.1: bar Z option, special chars  
+<li><a href="100293-01.README">100293-01.README</a>
+Synopsis: SunOS 4.1.1: write system call is returning EINTR
+<li><a href="100293-03.README">100293-03.README</a>
+Synopsis: SunOS 4.1.1: write system call is returning EINTR
+<li><a href="100293-04.README">100293-04.README</a>
+Synopsis: SunOS 4.1.1: write system call is returning EINTR
+<li><a href="100296-01.README">100296-01.README</a>
+Synopsis: SunOS 4.1, 4.1.1: exports lines longer than 256 chars exports to world
+<li><a href="100296-02.README">100296-02.README</a>
+Synopsis: SunOS 4.1, 4.1.1: netgroup exports to world
+<li><a href="100296-03.README">100296-03.README</a>
+Synopsis: SunOS 4.1, 4.1.1, 4.1.2: netgroup exports to world
+<li><a href="100296-04.README">100296-04.README</a>
+Synopsis: SunOS 4.1.1, 4.1.2, 4.1.3: netgroup exports to world
+<li><a href="100297-02.README">100297-02.README</a>
+Synopsis: Languages: Yacc's internal table size is too small for some applications
+<li><a href="100300-01.README">100300-01.README</a>
+Synopsis: SunOS 4.1.1,4.1: automount(8) and on(1C) do not lock mtab during updates 
+<li><a href="100303-01.README">100303-01.README</a>
+Synopsis: SunOS 4.1.1;4.1: system freezes using loopback interface
+<li><a href="100303-02.README">100303-02.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2: system freezes using loopback interface
+<li><a href="100304-02.README">100304-02.README</a>
+Synopsis: SunOS 4.1.1: panic due to window in rtfree()
+<li><a href="100305-01.README">100305-01.README</a>
+Synopsis: SunOS 4.1.1;4.1: lpd can be used to delete any file on the system
+<li><a href="100305-03.README">100305-03.README</a>
+Synopsis: SunOS 4.1.1;4.1;4.0.3;4.0.2-386i: lpd can be used to delete any file on the system
+<li><a href="100305-06.README">100305-06.README</a>
+Synopsis: SunOS 4.1.1;4.1;4.0.3;4.0.2-386i: lpd can be used to delete any file on the system
+<li><a href="100305-07.README">100305-07.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2: lpd can be used to delete any file on the system
+<li><a href="100305-10.README">100305-10.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2;4.1.3: lpd can be used to delete any file on the system
+<li><a href="100305-11.README">100305-11.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2;4.1.3: lpd can be used to delete any file on the system
+<li><a href="100305-13.README">100305-13.README</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: lpr Jumbo Patch
+<li><a href="100305-14.README">100305-14.README</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: lpr Jumbo Patch
+<li><a href="100305-15.README">100305-15.README</a>
+Synopsis: SunOS 4.1.1, 4.1.2, 4.1.3: lpr Jumbo Patch
+<li><a href="100308-01.README">100308-01.README</a>
+Synopsis: SunLink SNA peer-to-peer 6.0 patches
+<li><a href="100310-02.README">100310-02.README</a>
+Synopsis: SunOS 4.1, 4.1.1: polling not working correctly with fds > 30
+<li><a href="100310-03.README">100310-03.README</a>
+Synopsis: OBSOLETED by 100359 SunOS 4.1, 4.1.1: polling not working correctly with fds > 30
+<li><a href="100311-01.README">100311-01.README</a>
+Synopsis: SunOS 4.1.1:restore i, wildcard chars. can't be used when adding files
+<li><a href="100313-01.README">100313-01.README</a>
+Synopsis: SunOS 4.1.1: umount;sync race can hang system
+<li><a href="100315-01.README">100315-01.README</a>
+Synopsis: SunOS 4.1.1:serial ports with soft Carrier & HUPCL not dropping DTR on last close
+<li><a href="100318-01.README">100318-01.README</a>
+Synopsis: C 1.1: problem with code generator handles comparisons of bitfield
+<li><a href="100321-01.README">100321-01.README</a>
+Synopsis: SunOS 4.1.1:system crashes with iesynccmd panic
+<li><a href="100328-10.README">100328-10.README</a>
+Synopsis: X.25 7.0: Fixes x25 and x29 bugs
+<li><a href="100328-12.README">100328-12.README</a>
+Synopsis: X.25 7.0: Fixes x25 and x29 bugs
+<li><a href="100328-13.README">100328-13.README</a>
+Synopsis: X.25 7.0: Fixes x25 and x29 bugs
+<li><a href="100328-17.README">100328-17.README</a>
+Synopsis: X.25 7.0: Fixes x25 and x29 bugs
+<li><a href="100328-18.README">100328-18.README</a>
+Synopsis: X.25 7.0: Fixes x29 bugs
+<li><a href="100328-21.README">100328-21.README</a>
+Synopsis: SunNet X.25 7.0: Jumbo patch for x25 and x29 bugs 
+<li><a href="100328-22.README">100328-22.README</a>
+Synopsis: SunNet X.25 7.0: Jumbo patch for x25 and x29 bugs 
+<li><a href="100328-23.README">100328-23.README</a>
+Synopsis: SunNet X.25 7.0: Jumbo patch for x25 and x29 bugs 
+<li><a href="100331-01.README">100331-01.README</a>
+Synopsis: PATCH ON HOLD
+<li><a href="100332-05.README">100332-05.README</a>
+Synopsis: Fortran 1.4: Fixes several bugs including the back end components
+<li><a href="100332-06.README">100332-06.README</a>
+Synopsis: Fortran 1.4: Fixes several bugs including the back end components
+<li><a href="100332-07.README">100332-07.README</a>
+Synopsis: Fortran 1.4: Fixes several bugs including the back end components
+<li><a href="100332-08.README">100332-08.README</a>
+Synopsis: Fortran 1.4: Fixes several bugs including the back end components
+<li><a href="100333-02.README">100333-02.README</a>
+Synopsis: OBSOLETED by 100472-01
+<li><a href="100334-01.README">100334-01.README</a>
+Synopsis: OBSOLETED by 100472-01
+<li><a href="100335-01.README">100335-01.README</a>
+Synopsis:  Sunview does not support 256 file descriptors.
+<li><a href="100338-04.README">100338-04.README</a>
+Synopsis: SunOS 4.1.1;4.1.2: system crashes with assertion failed panic
+<li><a href="100338-05.README">100338-05.README</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: system crashes with assertion failed panic
+<li><a href="100339-04.README">100339-04.README</a>
+Synopsis: SunLink SNA peer-to-peer 6.0 patches
+<li><a href="100341-01.README">100341-01.README</a>
+Synopsis: SunOS 4.1.1 inetd: Problem with booting diskless clients 
+<li><a href="100342-01.README">100342-01.README</a>
+Synopsis: NIS client takes a long time to recover if the server is rebooted. 
+<li><a href="100342-02.README">100342-02.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2: NIS client needs long recovery time if server reboots
+<li><a href="100342-03.README">100342-03.README</a>
+Synopsis: SunOS 4.1 4.1.1 4.1.2 4.1.3: NIS client needs long recovery time if server reboots
+<li><a href="100344-01.README">100344-01.README</a>
+Synopsis: bourne shell: temporary file not removed if exec'ing other program
+<li><a href="100346-03.README">100346-03.README</a>
+Synopsis: SunOS 4.1.1: patches for libxpg
+<li><a href="100350-01.README">100350-01.README</a>
+Synopsis: NeWSprint:postscript files not printed on kanji-postscript printers
+<li><a href="100351-01.README">100351-01.README</a>
+Synopsis: NeWSprint queue hangs up when out of paper
+<li><a href="100353-02.README">100353-02.README</a>
+Synopsis: SNM1.1: Jumbo Patch Number 2
+<li><a href="100357-01.README">100357-01.README</a>
+Synopsis: SunOS 4.1.1: SIGIO signal for async io fails to pend across NFS
+<li><a href="100358-01.README">100358-01.README</a>
+Synopsis: SUnOS 4.1.1: unable to dialin DTR dropped
+<li><a href="100359-04.README">100359-04.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2: streams jumbo patch
+<li><a href="100359-05.README">100359-05.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2: streams jumbo patch
+<li><a href="100359-06.README">100359-06.README</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: streams jumbo patch
+<li><a href="100359-08.README">100359-08.README</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: streams jumbo patch
+<li><a href="100360-01.README">100360-01.README</a>
+Synopsis: OBSOLETED by 100472-01
+<li><a href="100361-03.README">100361-03.README</a>
+Synopsis: SunOS 4.1.1: server not responding due to limits of arp table
+<li><a href="100361-04.README">100361-04.README</a>
+Synopsis: SunOS 4.1.1: server not responding due to limits of arp table
+<li><a href="100362-01.README">100362-01.README</a>
+Synopsis: OBSOLETED by 100472-01
+<li><a href="100363-01.README">100363-01.README</a>
+Synopsis: OBSOLETED by 100472-01
+<li><a href="100370-01.README">100370-01.README</a>
+Synopsis: SunOS4.1 SunOS4.1.1 PTICKS PATCH
+<li><a href="100372-01.README">100372-01.README</a>
+Synopsis: SunOS 4.1.1: tfs and c2 do not work together
+<li><a href="100372-02.README">100372-02.README</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: tfs and c2 do not work together
+<li><a href="100374-01.README">100374-01.README</a>
+Synopsis: OBSOLETE use 100399
+<li><a href="100375-01.README">100375-01.README</a>
+Synopsis: SunOS 4.1.1:Accessing a SCSI tape drive causes system crash. 
+<li><a href="100377-04.README">100377-04.README</a>
+Synopsis: SunOS 4.1;4.1.x: Sendmail.mx doesn't recognize wildcard, 
+Synopsis: sendmail yp aliasing does not work with non sun yp masters
+<li><a href="100377-05.README">100377-05.README</a>
+Synopsis: SunOS 4.1;4.1.x: Sendmail.mx doesn't recognize wildcard, 
+Synopsis: sendmail yp aliasing does not work with non sun yp masters
+<li><a href="100377-07.README">100377-07.README</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: sendmail jumbo patch 
+Synopsis: sendmail yp aliasing does not work with non sun yp masters
+Synopsis: Sendmail can be used to retrieve system files
+<li><a href="100377-08.README">100377-08.README</a>
+Synopsis: SunOS 4.1.x: sendmail jumbo patch (Sendmail.mx doesn't recognize wildcard)
+Synopsis: sendmail security
+Synopsis: sendmail .forward capability causes security hole
+Synopsis: Sendmail can be used to retrieve system files
+Synopsis: sendmail yp aliasing does not work with non sun yp masters
+<li><a href="100377-09.README">100377-09.README</a>
+Synopsis: SunOS 4.1.x: sendmail jumbo patch 
+<li><a href="100377-15.README">100377-15.README</a>
+Synopsis: SunOS 4.1.x: sendmail jumbo patch 
+<li><a href="100377-17.README">100377-17.README</a>
+Synopsis: SunOS 4.1.x: sendmail jumbo patch 
+<li><a href="100377-18.README">100377-18.README</a>
+Synopsis: SunOS 4.1.1, 4.1.2, 4.1.3: sendmail jumbo patch 
+<li><a href="100381-01.README">100381-01.README</a>
+Synopsis: SunOS 4.1.1: du and tar bug fix for compatibility with VMS 
+<li><a href="100381-02.README">100381-02.README</a>
+Synopsis: SunOS 4.1.1: bar, du and tar bug fix for compatibility with VMS 
+<li><a href="100383-02.README">100383-02.README</a>
+Synopsis: SunOS 4.1;4.1.1; 4.0.3: rdist security enhancement
+<li><a href="100383-04.README">100383-04.README</a>
+Synopsis: SunOS 4.0.3;4.1;4.1.1;4.1.2: rdist security enhancement
+<li><a href="100383-05.README">100383-05.README</a>
+Synopsis: SunOS 4.0.3;4.1;4.1.1;4.1.2;4.1.3: rdist security enhancement
+<li><a href="100383-06.README">100383-06.README</a>
+Synopsis: SunOS 4.0.3;4.1;4.1.1;4.1.2;4.1.3: rdist security and hard links enhancement, 
+<li><a href="100384-01.README">100384-01.README</a>
+Synopsis: SunOS 4.1.1: panic data fault on rfs
+<li><a href="100390-01.README">100390-01.README</a>
+Synopsis: SunOS4.1, 4.1.1: DNS doesn't work properly with secondary name server 
+<li><a href="100398-02.README">100398-02.README</a>
+Synopsis: nse 1.3RevA: General bug fixes for 1.3 release
+<li><a href="100399-02.README">100399-02.README</a>
+Synopsis:  SunOS 4.1;4.1.1: csh memory leak tty gets EOF condition
+<li><a href="100402-01.README">100402-01.README</a>
+Synopsis: SunOS 4.1;4.1.1: cron dumps core on what appears to be correct entries
+<li><a href="100407-02.README">100407-02.README</a>
+Synopsis: SunOS 4.1;4.1.1: accounting files are corrupted when commands are run as nobody
+<li><a href="100407-03.README">100407-03.README</a>
+Synopsis: SunOS 4.1;4.1.1; 4.1.2: accounting files are corrupted when commands run as nobody
+<li><a href="100407-05.README">100407-05.README</a>
+Synopsis: SunOS 4.1.1; 4.1.2: accounting files are corrupted when commands run as nobody
+<li><a href="100407-06.README">100407-06.README</a>
+Synopsis: SunOS 4.1.1; 4.1.2; 4.1.3: accounting jumbo patch
+<li><a href="100407-07.README">100407-07.README</a>
+Synopsis: SunOS 4.1.1; 4.1.2; 4.1.3: accounting jumbo patch
+<li><a href="100407-09.README">100407-09.README</a>
+Synopsis: SunOS 4.1.1; 4.1.2; 4.1.3: accounting jumbo patch
+<li><a href="100408-01.README">100408-01.README</a>
+Synopsis: SunOS 4.1.1: libcurses replacement with all 4.1.1 CTE patches
+<li><a href="100409-02.README">100409-02.README</a>
+Synopsis: AnswerBook 1.3: printing some AnswerBook "books" fail
+<li><a href="100411-01.README">100411-01.README</a>
+Synopsis: OBSOLETED by 100472-01
+<li><a href="100412-01.README">100412-01.README</a>
+Synopsis: SunOS 4.1;4.1.1: applications bind to same port if IP address supplied
+<li><a href="100412-02.README">100412-02.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2;4.1.3..: applications bind to same port if IP address supplied
+<li><a href="100413-01.README">100413-01.README</a>
+Synopsis: SunOS4.1;4.1.1: tar fills last block of tarfile with unrelated data
+<li><a href="100414-01.README">100414-01.README</a>
+Synopsis: SunOS4.1;4.1.1: programs using pty get output from previous application
+<li><a href="100416-01.README">100416-01.README</a>
+Synopsis: SunOS4.1.1: tip fails can't synchronize with hayes
+<li><a href="100421-02.README">100421-02.README</a>
+Synopsis: SunOS 4.1; 4.1.1: rpc.rexd doesn't log remote system or user in utmp 
+<li><a href="100421-03.README">100421-03.README</a>
+Synopsis: SunOS 4.1; 4.1.1 4.1.2 4.1.3
+<li><a href="100424-01.README">100424-01.README</a>
+Synopsis: SunOS 4.1.1; NFS/fsirand security fix. 
+<li><a href="100425-01.README">100425-01.README</a>
+Synopsis: SunOS 4.0.3;4.1;4.1.1: whois gets host unknown when using the hard coded NICHOST
+<li><a href="100441-01.README">100441-01.README</a>
+Synopsis: TNT 2.0: Race condition in TNT ClassItemGroup code
+<li><a href="100449-01.README">100449-01.README</a>
+Synopsis: SunOS4.1;4.1.1: Ex in open mode with '-' option won't display correctly
+<li><a href="100457-01.README">100457-01.README</a>
+Synopsis: SunOS 4.1.1: bar Z option, special chars 'bar tvf rst0' causes segmentation fault.  bar's include file option (I) causes segmentation violation using the *no rewind* tape device and end up writing past EOT
+<li><a href="100458-01.README">100458-01.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2: Setitimer sometimes fails to deliver a SIGALRM.
+<li><a href="100458-02.README">100458-02.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2: Setitimer sometimes fails to deliver a SIGALRM.
+<li><a href="100458-03.README">100458-03.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2;4.1.3: Setitimer sometimes fails to deliver 
+<li><a href="100465-02.README">100465-02.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2;4.1.3: DNS res_send() fails if first nameserver in resolv.conf returns ECONNREFUSED
+<li><a href="100468-03.README">100468-03.README</a>
+Synopsis: SunOS4.1.1;4.1.2;4.1.3: rcp/rsh should use setsockopt to detect failed connection rsh uses old-style selects instead of 4.0 selects.
+<li><a href="100472-02.README">100472-02.README</a>
+Synopsis: DNI 7.0 jumbo patch.
+<li><a href="100473-01.README">100473-01.README</a>
+Synopsis: MCP HDLC driver cannot send frames larger than 1K.
+<li><a href="100480-01.README">100480-01.README</a>
+Synopsis: SunNet MHS 7.0: mhs bug fixes
+        Synopsis: 4.1 subsidiary sendmail fails to route when 
+        Synopsis:  Not translating 822 username "_" into 
+        Synopsis: Wrong activity identifier prevents connection
+<li><a href="100482-02.README">100482-02.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2: ypserv sends maps to anyone who guesses domainname 
+<li><a href="100482-03.README">100482-03.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2;4.1.3: ypserv sends maps to anyone who guesses domainname 
+<li><a href="100482-04.README">100482-04.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2;4.1.3: ypserv and ypxfrd fix, plus DNS fix
+<li><a href="100482-05.README">100482-05.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2;4.1.3: ypserv and ypxfrd fix, plus DNS fix
+<li><a href="100482-06.README">100482-06.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2;4.1.3: ypserv and ypxfrd fix, plus DNS fix
+<li><a href="100500-01.README">100500-01.README</a>
+Synopsis: NJE does'nt invoke the .disp_username with the correct jobid
+<li><a href="100505-01.README">100505-01.README</a>
+Synopsis: SunOS 4.1.1;4.1.2: Zero length directories can be left on system
+<li><a href="100507-05.README">100507-05.README</a>
+Synopsis: SunOS 4.1.1, 4.1.2, 4.1.3: tmpfs jumbo patch
+<li><a href="100508-01.README">100508-01.README</a>
+Synopsis: SunLink 7.0: channel ending status not presented
+<li><a href="100513-01.README">100513-01.README</a>
+Synopsis: SunOS 4.1.x: printers, terminals, plotters, hang on serial and ALM2 port printer not respond to XON/XOFF pty can get output from another application unable to dialin DTR dropped hayes modem dropping NULLs
+<li><a href="100513-02.README">100513-02.README</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: Jumbo tty patch
+<li><a href="100513-03.README">100513-03.README</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: Jumbo tty patch
+<li><a href="100513-04.README">100513-04.README</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: Jumbo tty patch
+Synopsis:  CTE zs driver gates reception on CD during hardware flow control
+<li><a href="100520-02.README">100520-02.README</a>
+Synopsis: SunOS 4.1.1;4.1.2: Cron dies when daylight savings time STARTS/STOPS
+<li><a href="100526-01.README">100526-01.README</a>
+Synopsis: SunOS 4.1.1: Opening file w/O_TRUNC won't update st_ctime,st_mtime
+<li><a href="100527-01.README">100527-01.README</a>
+Synopsis: SunOS 4.1.1;4.1.2: rsh uses old-style selects instead of 4.0 selects
+<li><a href="100527-02.README">100527-02.README</a>
+Synopsis: SunOS 4.1.1;4.1.2: rsh uses old-style selects instead of 4.0 selects
+<li><a href="100527-03.README">100527-03.README</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: rsh uses old-style selects instead of 4.0 selects
+<li><a href="100528-03.README">100528-03.README</a>
+Synopsis: SNA3270 7.0: HLI bug fixes
+<li><a href="100549-01.README">100549-01.README</a>
+Synopsis: lex/4.1.1: lex core dumps on large input files
+<li><a href="100556-02.README">100556-02.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2: cpio data corruption when 2 inodes have same value
+<li><a href="100567-04.README">100567-04.README</a>
+Synopsis: SunOS 4.1,4.1.x: mfree panic due to mbuf being freed twice, icmp redirects can be used to make a host drop connections
+<li><a href="100570-01.README">100570-01.README</a>
+Synopsis: SunOS 4.1.1;4.1.2: ie0 ethernet jumbo patch
+<li><a href="100570-03.README">100570-03.README</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: ie0 ethernet jumbo patch
+<li><a href="100570-05.README">100570-05.README</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: ie0 ethernet jumbo patch
+<li><a href="100590-01.README">100590-01.README</a>
+Synopsis: SNA3270 6.1:  Resetting MDT of attrib x 'C1'/x'D1' returns x'C0'/x'D0'
+<li><a href="100593-02.README">100593-02.README</a>
+Synopsis: SunOS 4.1.1, 4.1.2: DUMP/RESTORE PROBLEMS - restore Cannot find file removal list
+<li><a href="100593-03.README">100593-03.README</a>
+Synopsis: SunOS 4.1.3: Security update for dump. 
+<li><a href="100598-01.README">100598-01.README</a>
+Synopsis: LPR/INCORRECT HEADER BANNER
+<li><a href="100600-01.README">100600-01.README</a>
+Synopsis: SunOS 4.1.1;4.1.2: fsck -p  won't check over 31 partitons
+<li><a href="100611-01.README">100611-01.README</a>
+Synopsis: DNI 7.0: multiple dnicp fixes
+<li><a href="100619-01.README">100619-01.README</a>
+Synopsis: SunOS 4.1.1: make fails w/unexpected EOLN when include split across 8k
+<li><a href="100620-01.README">100620-01.README</a>
+Synopsis: SunOS 4.1.1;4.1.2: Compiler generates incorrect code with -O2 or higher
+<li><a href="100622-01.README">100622-01.README</a>
+Synopsis: 4.1.1: 4.1.1 UFS jumbo patch
+<li><a href="100630-01.README">100630-01.README</a>
+Synopsis: SunOS 4.x: environment variables can be used to exploit login/su
+<li><a href="100630-02.README">100630-02.README</a>
+Synopsis: SunOS 4.x: SECURITY: methods to exploit login/su
+<li><a href="100631-01.README">100631-01.README</a>
+Synopsis: SunOS 4.x: environment variables can be used to exploit login
+<li><a href="100634-01.README">100634-01.README</a>
+Synopsis: Select system call hangs when linked with lnbio & llwp libraries
+<li><a href="100650-01.README">100650-01.README</a>
+Synopsis: 4.1.1, 4.1.2: ipcs aborts with "shmctl: Permission denied"
+<li><a href="100650-02.README">100650-02.README</a>
+Synopsis: 4.1.1,4.1.2,4.1.3: ipcs aborts with "shmctl: Permission denied"
+<li><a href="100651-01.README">100651-01.README</a>
+Synopsis: SunOS 4.1;4.1.1;4.1.2: Cron dumps core & Cron dies when daylight savings time STARTS/STOPS
+<li><a href="100654-01.README">100654-01.README</a>
+Synopsis: INSTALLTXT HAS UNDOCUMENTED LIMITS OF TAG SIZE 127 AND MESSAGE SIZE 255
+<li><a href="100656-01.README">100656-01.README</a>
+Synopsis: 4.1.1;4.1.2: ACCOUNTING/ACCTCON1: RECOMPILE WITH LARGER A_TSIZE
+<li><a href="100672-01.README">100672-01.README</a>
+Synopsis: 4.1.1, 4.1.2: static libc.a missing asynchronous I/O _aiocancel _aioread _aiowait
+<li><a href="100694-01.README">100694-01.README</a>
+Synopsis: SunOS 4.1;4.1.1: PANICS WHEN UMOUNTING A WRITE PROTECTED FLOPPY ON SUN3X
+<li><a href="100696-01.README">100696-01.README</a>
+Synopsis: 4.1.1;4.1.2;4.1.3: lpr and lprm use the real userid rather than the effective userid
+<li><a href="100710-02.README">100710-02.README</a>
+Synopsis:  Modula-2 2.3: Fixes a problem (undefined symbols) running Modula-2 on SunOS 4.1.2 and 4.1.3.
+<li><a href="100747-01.README">100747-01.README</a>
+Synopsis: SunOS 4.1.1_u1: libsunwindow patch
+<li><a href="100827-01.README">100827-01.README</a>
+Synopsis: OBSOLETED by DNI-7.0.1
+<li><a href="100867-01.README">100867-01.README</a>
+Synopsis: 4.0.3;4.1;4.1.1;4.1.1_U1: "panic:FPA not enabled" when read(2) nbyte is larger than buf on Sun3x machine
+<li><a href="100893-01.README">100893-01.README</a>
+Synopsis: OpenWindows 2.0: Patch release 2008-26 for X11-NeWS server
+<li><a href="100909-03.README">100909-03.README</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: Security update for syslogd.  
+<li><a href="101072-01.README">101072-01.README</a>
+Synopsis: 4.1.1;4.1.2;4.1.3: tar xvpf does not restore the original ownerships on symbolic links
+<li><a href="101072-02.README">101072-02.README</a>
+Synopsis: SunOS 4.1.1;4.1.2;4.1.3: Non-related data filled the last block tarfile
+<li><a href="101080-01.README">101080-01.README</a>
+Synopsis: SunOS 4.1.1 4.1.2 4.1.3: security problem with expreserve
+<li><a href="101480-01.README">101480-01.README</a>
+Synopsis: SunOS 4.1.3: Security update for in.talkd.
+<li><a href="101481-01.README">101481-01.README</a>
+Synopsis: SunOS 4.1.3: Security update for shutdown.
+<li><a href="101482-01.README">101482-01.README</a>
+Synopsis: SunOS 4.1.3, 4.1.2, 4.1.1: Security update for write.
+<li><a href="101783-02.README">101783-02.README</a>
+Synopsis: SunOS 4.1.1;4.1.2: jumbo patch for ld.so, ldd, and ldconfig
+<li><a href="101817-01.README">101817-01.README</a>
+Synopsis: 4.1;4.1.1;4.1.2: rpc.lockd jumbo patch
+<li><a href="102231-01.README">102231-01.README</a>
+Synopsis: SunOS 4.1.1/4.1.2: NFS Jumbo Patch
+<li><a href="C++_2.0.README">C++_2.0.README</a>
+Synopsis: Allows C++ 2.0 to run under SunOS 4.1.1.
+<li><a href="SunIPC.README">SunIPC.README</a>
+Synopsis: Make SunIPC 1.2 work on SunOS 4.1.1
+<li><a href="Sun_4.1.1U1.README">Sun_4.1.1U1.README</a>
+Synopsis: Update SunOS 4.1.1 to SunOS 4.1.1_U1
+</ul>
+<? Include "/export/sun-archive/include/footer.phtml">

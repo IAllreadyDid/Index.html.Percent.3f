@@ -1,0 +1,175 @@
+From postmaster Mon May 10 17:08:53 1993
+Received: from demon.demon.co.uk by demon.demon.co.uk id aa12232;
+          10 May 93 17:07 BST
+Received: from [158.152.1.65] by demon.demon.co.uk id aa12226;
+          10 May 93 17:07 BST
+Received: from qssl.demon.co.uk by gate.demon.co.uk id aa10603;
+          10 May 93 17:05 BST
+Received:  by qssl.demon.co.uk (4.1/25-eef)
+	id AA00247; Mon, 10 May 93 17:03:11 BST
+Date: Mon, 10 May 93 17:03:11 BST
+From: "George A. McCaskill" <george@qssl.demon.co.uk>
+Message-Id: <9305101603.AA00247@qssl.demon.co.uk>
+To: internet@demon.co.uk
+Subject: connecting to demon from a Sparc IPC.
+Status: RO
+
+
+As requested, I have summarized the experiences I have had in
+connecting to demon.  The document really needs sections on
+getting mail well setup (I still have a few problems), security,
+and reading news.  A guide to connecting modems may be useful for
+those who have not even got that far.  Anyway, I hope this helps someone.
+
+I've probably missed stuff out (I should have kept notes as I went along),
+so maybe it could be debugged by the next person connecting from a SUN.
+
+If you have a unix box, cut the following out and pipe through
+"nroff -e -ms | more", if not, ignore the nroff macros!
+
+Please feel free to correct, embellish or ignore.
+
+regards,
+
+George.
+
+---------------------8<-------------------------8<--------------------
+
+.nr LL 18c
+.pl 29.7c
+.nr PO 2c
+.ND
+.TL
+Connecting a SPARC IPC to Demon Internet Services
+.AU
+George A. McCaskill
+.AI
+Requirements Engineering Ltd.
+.AB
+This short note summarizes my experiences in connecting my SPARC IPC
+to demon.  It is my hope that someone may find it useful and not too
+misleading.
+.AE
+
+.NH
+Introduction
+.PP
+I've been a software developer for over a decade,
+but until now, I have had
+little to do with the wonderful world of networking beyond typing
+M-x rmail at emacs.  In other words, someone else has always been there
+to fix/break the system.  However, I find myself as the sole
+member of my company's Edinburgh Research Facility (i.e. my study at home),
+and suddenly I'm the system manager.  Help ma bob.
+
+OK, I need to speak to the world. Hooking up to Compuserve through tip
+(a reasonably easy way to get started), isn't good enough for me -- oh no,
+I want full blown INTERNET connection with proper looking email addresses,
+and worldwide ftp and telnet access.
+
+.NH
+Getting Started
+
+.PP
+My starting point with demon was noticing their presence on USENET
+while I was employed at another place.  I suppose if you are reading this,
+then you know how to make initial contact and get the basic start-up
+information.  You chose your machine name and part with some dosh.  Demon
+provide initial advice on what you need to download from their guest
+account.  I'll only speak about connecting from Suns.
+
+.NH
+Downloading and Building
+
+.PP
+At this point you have setup a machine name with demon, and are armed
+with today's password for the guest account.  You now have to dial
+up demon using tip. (I will assume that you can suss out
+how to connect a modem to your system and work out how to use tip.  If
+you can't, you are probably in a spot of bother ...)
+
+So now we are logged in as guest.  What to take?  You will need:
+  
+.DS B +5
+from /pub/doc
+
+Demon.txt
+Services.txt
+.DE
+
+and anything else that looks interesting
+
+.DS B +5
+from /pub/sun
+
+ppp/ppp-sunos4.1.pl6.tar.Z
+resolv+2.1.tar.Z
+.DE
+
+Build ppp first.  Follow the advice in Readme.Streams to the letter.
+In particular, check the stuff about "_sys_types.h" in step 8.  If
+you ignore this, you may get an "inappropriate ioctl" error when you
+run ppp.  Building a new kernel is not as bad as I thought it would
+be.
+
+You now have to edit and set the correct permissions on the various
+scripts in the INSTALL directory.  I was lazy and just run them as root.
+Here is my ppp-on script:
+
+.DS B +5
+#!/bin/sh -x
+
+#
+#	ppp-on
+#
+#	Set up a PPP link
+#
+
+if [ -f /usr/spool/locks/LCK..cua1 ]
+then
+    echo "PPP device is locked"
+    exit 1
+fi
+
+fix-cua
+
+(
+    stty 19200 -tostop
+
+    if chat -v -l LCK..cua1 ABORT "NO CARRIER" ABORT BUSY "" ATZ OK ATDT131,mymercrynumber0813434848 CONNECT "" ogin:-\d\c-ogin: \\dqssl word:-\d\c-word: secret otocol:-\d\c-otocol: rfc1172 HELLO
+    then
+	../ppp mru 1500 158.152.11.666: /dev/cua1 &
+	sleep 10
+	route add default 158.152.1.65 1
+	exit 0
+    else
+	echo "PPP call failed" 1>&2
+	exit 1
+    fi
+) < /dev/cua1 > /dev/cua1
+
+.DE
+
+.PP
+You will need to change 158.152.11.666 to your own IP address, and substitute
+your own machine name and password for "qssl" and "secret" in the chat command
+string.  You may want to change the baud rate (19200 in the above).  You may
+want to change the device name (/dev/cua1 in the above).
+
+Now build resolv+ as per its instructions -- I found this to be problem free.
+The pre-built libraries provided in /pub/sun may be out of date for your
+machine.
+
+.NH
+Setting Up Mail (to be completed)
+
+.PP
+The only real help here is the contents of /pub/unix/sendmail.sample --
+I have managed to get sending and receiving going OK (using rmail
+within emacs -- which in turn uses sendmail).
+
+.NH
+Security (to be written)
+
+.NH
+Reading news on USENET (to be written)

@@ -1,0 +1,8 @@
+Hi!
+
+Did you ever miss the function strerror?
+
+cd /usr
+tar xvf /where/ever/it/is/strerror.tar.gz
+
+Voila!

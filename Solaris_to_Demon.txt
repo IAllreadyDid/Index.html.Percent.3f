@@ -1,0 +1,883 @@
+                  Sun Workstation / Solaris 2.5
+            PPP dial up connection to Demon Internet
+
+                           V1.1 Feb 97
+                        by Graham Ellis
+
+Sections in these notes:
+  * 0.0 About this document *IMPORTANT*
+  * 0.1 The Sun Workstation
+  * 0.2 Extras needed *MUST READ*
+  * 1.0 What you need from Demon *MUST READ*
+  * 1.1 PPP - the Basic Connection *MUST READ*
+  * 1.2 DNS - Resolving names *MUST READ*
+  * 1.3 Setting up mail *IMPORTANT*
+  * 1.4 Automating the link and mail exchange *IMPORTANT*
+  * 1.5 Installing the Web browser
+  * 1.6 News
+  * 1.7 Internet Routing
+  * 1.8 Other Client Services
+  * 1.9 Running as a server
+  * 1.10 Security aspects *MUST READ*
+  * 1.11 What else you can now do!
+  * 2.0 Local PPP - RS232 access to your Sun from a PC
+
+0.0 About this document
+
+  * Connection to Demon Internet - There's plenty of information
+    for PC, Linux, etc. Not so much on Sun.
+
+  * I have done this twice - home Sun plus at work. NOT just a
+    question of talking, but also of getting service running ...
+       + Establish modem link
+       + Protocol and Login
+       + Name Resolution
+       + Accessing Services
+
+  * This document is in Training notes / follow through guide
+    format. It is NOT an attempt to answer every question, but
+    you should learn enough to "go find out".
+
+  * An updated copy of this document may be found at
+    http://www.firstalt.co.uk/drive/suntodemon.html
+
+  * Installations in these notes all go onto conventional /
+    default directories. For example, applications to
+    /usr/local/bin.
+
+  * These notes may be useful for connection to other service
+    providers and/or using different versions of Unix - but they
+    will NOT be accurate
+
+  * Whilst every attempt has been made to avoid errors, the
+    author cannot be held responsible for any errors nor their
+    consequences
+
+First Alternative can offer you training on many aspects touched
+on in this document if you feel you don't yet have enough
+knowledge to do the whole job for yourself.
+
+    If you have a printed set of these notes, First
+    Alternative can be reached on 01235 820011, fax 01235
+    820750, or email to pauline@firstalt.co.uk.
+
+If you would like to pay the author to set up your system as
+described in these notes (tailored, of course, to meet your
+needs), you are welcome to email me. Oh - there's a brief note of
+who I am available on the net!
+
+    If you have a printed set of these notes, Graham Ellis
+    can be reached on 01380 813520, (phone or fax) or email
+    to graham@wellho.demon.co.uk
+
+0.1 The Sun Workstation
+
+The setup I used was:
+
+SunOS wellho 5.5 Generic sun4c sparc SUNW,Sun_4_25
+mem = 16384K
+Ethernet address = 8:0:20:3:51:da
+
+In other words - a Sun ELC workstation with 16Mbytes of memory
+running Solaris 2.5, with nothing special about it.
+
+Oh - the system has a 2Gb disc pack on which there is a full build
+of Solaris and a lot of other software as well. If you are using
+an existing workstation / setup, 100Mbytes should be ample for all
+the extras you might add here put together; you may find that
+while you are working, sure, 250Mbytes would be welcome.
+
+0.2 Pre-required in addition to Solaris:
+
+  * External Modem.
+
+  * RS232 Cable.
+    Straight (not crossed) cable, pins 2-8 and 20 connected at
+    least.
+    Connector Types and genders to allow connection from your Sun
+    workstation to the modem
+
+  * Phone line.
+
+  * PPP (Merit)
+    ftp://sunsite.doc.ic.ac.uk/computing/comms/ip/ppp/merit/unix/ppp-2.2.tar.gz
+
+    Loading instructions ARE included in these notes.
+
+    Ideas for obtaining the file:
+       + Is it on your local network? - Copy it - it's not
+         licensed software
+       + Got a PC with net access or a friend with net access? -
+         Load it to there and transfer via floppy.
+
+  * C Compiler
+    gcc version 2.6.3
+    (Commonly available software)
+    (loading instructions NOT included in these notes)
+
+  * Gzip
+    gzip 1.2.4 (18 Aug 93)
+    (Commonly available software)
+    (loading instructions NOT included in these notes)
+
+We believe that these procedures will work equally well with other
+c compilers, and other versions of gzip.
+
+Further software will be loaded (further down this procedure) via
+FTP once you are on line!
+
+1.0 To Demon
+
+Demon Account required:
+Standard dialup service to 0845 07986666
+
+In this example, we have used
+  + domain wellho.demon.co.uk
+  + IP 158.152.118.164
+
+Note - if this is a brand new Demon account , you need to
+initially set a password. Demon will advise.
+
+1.1 PPP
+
+PPP (Point to Point Protocol) is a transmission method which
+allows you to bring the internet "down your phone line". Ethernet
+packets (including IP or Internet Protocol) are wrapped up for
+serial line transfer - you really ARE on the net at your desktop
+with PPP!
+
+There are various PPP packages available - we have identified one
+we have found easy to set up and use; installation and set up as
+follows:
+
+  * Obtain and copy PPP onto disc in a "work" area. On my system,
+    I use a directory / slice called /packages.
+
+  * extract files from distribution:
+
+    cd /packages
+    gzip -d ppp-2.2.tar.gz
+    tar xf ppp-2.2.tar
+
+  * Look at what you have
+
+    cd ppp-2,2
+    ls
+    Examples       README.cbcp    SETUP          freebsd-2.0    pppd
+    NeXT           README.linux   TODO           linux          pppstats
+    README         README.osf     aix4           modules        scripts
+    README.NeXT    README.sun     chat           net            sunos
+    README.aix4    README.svr4    configure      netbsd         svr4
+    README.bsd     README.ultrix  etc.ppp        osf1           ultrix
+
+  * run
+
+    setenv CC gcc
+    ./configure
+    make
+    make install
+
+You now have this ppp software in /usr/local; executable, manual
+pages, etc!
+
+Next stage is to CONFIGURE PPP so that it will talk to Demon.
+  * Set up (file does not exist by default) /etc/ppp/chat-script
+    with contents such as:
+
+    "" ATZ
+    K ATDT08450798666
+    ogin: wellho
+    assword: j4d8%eEa
+    otocol: PPP
+
+    This is the script for the "exchange" that must take place
+    for you to contact Demon and log in. In case an answer comes
+    back too fast for your Sun (!), leave the first character off
+    the remote responses; e.g "K" not "OK".
+
+    Yes - you WILL need to modify the file to include your own
+    host name and password. (And - no - that is NOT really my
+    password - always be very careful with your real password!)
+
+  * Make cable connection to modem, Ensure modem is connected to
+    line.
+
+  * Test connection and link
+
+    wellho# /usr/local/bin/pppd /dev/term/a 19200 158.152.118.164: \
+    connect '/usr/local/bin/chat -f /etc/ppp/chat-script'
+
+    [await the connection to establish - watch modem lights, or
+    time it at 30 seconds or a little more]
+
+    wellho# route add default 158.152.1.222 0
+    add net default: gateway 158.152.1.222
+    wellho# ping 158.152.1.14
+    158.152.1.14 is alive
+    wellho# kill `cat /etc/ppp/ppp0.pid`
+
+What have I achieved up to this point?
+  * You have sourced and installed the PPP package which allows
+    you to connect your Sun Workstation to the internet via a
+    serial cable (and use IP addressing once it's on line)
+  * You have configured the package so that it will dial Demon
+    Internet, log in and connect to their service.
+  * You have tested that this works
+
+What remains?
+
+Your connection is a very basic one so far. The next stages are:
+ 1. To allow you to resolve host computer and mail address names
+    via the "Domain Name Service".
+ 2. To gather the connection commands together into a script file
+    so that you haven't got to type huge commands every time you
+    wish to dial in.
+ 3. To set up and test individual net services, such as mail, web
+    access, and news.
+
+1.2 DNS
+
+DNS (The Domain Name Service) is the service through which IP
+addresses (such as 158.152.118.164) are converted to host names
+(such as wellho.demon.co.uk).
+
+For the purposes of this set up, you do not need to know too much
+about DNS, but it IS worth knowing that
+  + you need to hook it to a name server for your "domain"
+  + which in turn knows about name servers for neighbouring
+    domains
+and so chains of enquiry around the world can be set up.
+
+To set up your link to DNS
+
+  * Edit the file /etc/nsswitch.conf. Add "dns" to hosts line. It
+    will now read
+
+            hosts:      files dns
+
+    Solaris 2 services which need to find out about host
+    computers all use the "nsswitch.conf" file as a pointer to
+    where the data is to be located. You have now instructed your
+    services to look at the local file /etc/hosts, and if that
+    does not provide an answer to use the DNS service.
+
+    (If your workstation is part of a larger in house network,
+    you may find that you have a more complex entry here. Unless
+    "dns" is already present, just add it on the end. If it IS
+    already present, you require work beyond the scope of these
+    notes)
+
+  * Create a file /etc/resolv.conf, contents:
+
+    domain          demon.co.uk
+    nameserver      158.152.1.65
+    nameserver      158.152.1.193
+
+    For robustness, there are always at least two name servers in
+    any domain. If you get no response from 158.152.1.65, your
+    system knows to try 158.152.1.193 instead.
+
+  * Test this by logging in / out as before, but this time "ping"
+    a system by name.
+
+    wellho# /usr/local/bin/pppd /dev/term/a 19200 158.152.118.164: \
+         connect '/usr/local/bin/chat -f /etc/ppp/chat-script'
+    [Wait for connection to be made]
+    wellho# route add default 158.152.1.222 0
+    add net default: gateway 158.152.1.222
+    wellho# ping gate.demon.co.uk
+    gate.demon.co.uk is alive
+    wellho# kill `cat /etc/ppp/ppp0.pid`
+    wellho#
+
+Now - here is an OPTIONAL extra. While on line, you might like to
+try "nslookup" (it's a standard part of Solaris 2) with which you
+can directly access name servers. Helps you to understand what is
+going on, and helps you later if you have problems with name
+resolving.
+
+Sample nslookup session:
+
+wellho# nslookup
+Default Server:  gate.demon.co.uk
+Address:  158.152.1.65
+
+> post
+Server:  gate.demon.co.uk
+Address:  158.152.1.65
+
+Name:    post.demon.co.uk
+Addresses:  194.217.242.16, 194.217.242.17, 194.217.242.144, 194.217.242.145
+
+>
+
+First Alternative covers DNS, including setting up your own
+server, on their Solaris 2 Advanced System Administration course.
+
+What have I achieved to this point?
+  * You have installed PPP software, set up, and tested a link to
+    Demon Internet.
+  * You have connected to Demon's "name Server" so that you can
+    resolve the names of computers all around the world on the
+    internet!
+  * As a bonus, network services which do not need further
+    configuartion are alreay running. You have used "ping" and
+    you should also be able to use ftp, telnet, talk, and many
+    more.
+
+What remains?
+  * Setting up and using services which do need to be configured
+  * Consideration of security aspects
+  * To gather the connection commands together into a script file
+    so that you haven't got to type huge commands every time you
+    wish to dial in.
+
+1.3 Email
+
+Is email one of the main reasons for your link? This section tells
+you how to set up that service. If you do NOT wish to use email
+from your Sun workstation (e.g. if you are setting up JUST a web
+browser connection) you can skip this section.
+
+Background ... Mail exchange will be done through the "sendmail"
+daemon, using "SMTP" - Simple Mail Transfer Protocol. which uses a
+configuration file called /etc/mail/sendmail.cf
+
+By default, if you connect into Demon as already described mail
+will NOT be exchanged. Your local "sendmail" daemon will not
+respond when Demon tries to offer it mail, nor will it route
+outgoing mail up to Demon and the rest of the internet.
+
+There is a LOT to sendmail - whole books on it; this setup works
+for us, but you may wish to update / research further.
+
+Procedure for setting up email:
+
+  * Various SAMPLE configuartion files are provided, and on a
+    newly installed system sendmail.cf will be set up for a
+    workstation on a local network which uses a main mail server
+    - NOT what you want. You need something MUCH closer to a main
+    mail system so:
+
+    wellho# cd /etc/mail
+    wellho# cp main.cf sendmail.cf
+    cp: overwrite sendmail.cf (y/n)? y
+    wellho#
+
+  * Now - you need to edit even THAT configuration. Changes to
+    make with your "favourite editor"
+
+       + Around line 21 change
+
+         Lmmaildomain
+
+         to
+
+         Dmwellho.demon.co.uk
+
+         Yes - that should be your own domain name!
+
+       + Around line 34 change
+
+         DMsmartuucp
+
+         to
+
+         DMether
+
+         Sets up IP routeing! Without this change, sendmail tries
+         to use uucp - "unix to unix copy" - system for mail
+         exchange
+
+       + Around line 37 change
+
+         DR ddn-gateway
+         CR ddn-gateway
+
+         to
+
+         DR post.demon.co.uk
+         CR post.demon.co.uk
+
+       + Around line 101 change
+
+         DlFrom $g  $d
+
+         to
+
+         DlFrom $f@$j  $d
+
+         This change and the last one affect mail headers; you
+         may wish to vary these changes later to suite your own
+         needs.
+
+       + Around line 105 change
+
+         Dq$g$?x ($x)$.
+
+         to
+
+         Dq$f@$j$?x ($x)$.
+
+  * Having changed the configuration file, you need to find the
+    sendmail daemon and restart it ...
+
+    wellho# ps -ef | grep send
+        root   186     1  0 06:48:10 ?        0:00 /usr/lib/sendmail -bd -q1h
+        root   430   300  1 09:56:17 pts/3    0:00 grep send
+    wellho# kill -9 186
+    wellho# /usr/lib/sendmail -bd -q1h &
+
+    If you wonder, the parameters to sendmail:
+         -bd Run as a daemon to accept incoming mail
+         -q1h ("q one h") Process outgoing queue every one hour
+
+  * ENSURE that you have a user account for your email name
+
+  * Now connect (as in previous section) and test.
+
+       + INCOMING mails should arrive automatically
+
+       + Send an outgoing mail (using "mailx") WHILE ON LINE
+
+         wellho% mailx 100650.2335@Compuserve.com
+         Subject: From me
+         Also to me
+         this is a test
+         and more of a test
+         hkjdsdfhjsdf
+         sdfjhsdhjfhjsdfjhksdf
+         EOT
+         wellho%
+
+       + To read (any) incoming mail
+
+         wellho% mail
+         From 100650.2335@CompuServe.COM Sun Feb  2 10:09:21 1997
+         Date: 02 Feb 97 04:51:02 EST
+         From: Graham Ellis <100650.2335@CompuServe.COM>
+         To: Graham
+         Subject: To me at Snu
+         Message-ID: <970202095101_100650.2335_BHL100-1@CompuServe.COM>
+         Content-Length: 18
+
+         Snuday tset one!
+
+         ? d
+         wellho%
+
+  * Mail which you "send" while not on line will be held in a
+    queue locally, and sent only when the queue is kicked.
+    Remember the "q1h" parameter on sendmail? Well - that is an
+    instruction for the queue to be activated for send every hour
+    - pretty UNlikely to happen while you're on line.
+
+    So - if you write emails off line (sensible thing to do, and
+    once you automate the scheme you'll not know when you ARE on
+    line), you need to run the following during EACH CONNECTION:
+
+            /usr/lib/sendmail -q
+
+    This will reactivate the queue once. You must then remain on
+    line long enough for email exchanges to go through.
+
+  * Now - (not covered in detail here) you need to set up your
+    mail system - aliases, .forward files, ensure all users have
+    accounts set up, etc.; all "standard" Solaris stuff which
+    First Alternative can tell you about on our courses.
+
+What have I achieved to this point?
+
+  * Installation of PPP and a link to Demon
+  * Resolution of host names
+  * Mail sending and receiving
+
+What remains?
+
+  * Setting up and using other services which need to be
+    configured
+  * Consideration of security aspects
+  * To gather the connection commands together into a script file
+    so that you haven't got to type huge commands every time you
+    wish to dial in.
+
+1.4 Automating the link and mail exchange
+
+We may want to add to these scripts later, but now seems a
+sensible time to start the automation!
+
+Here's the script I use; I chose to place it in
+/usr/local/bin/demon
+
+#!/bin/csh -f
+#
+#   Connection script ...
+#
+# Set up ppp link to Demon
+# Author - Graham Ellis - graham@wellho.demon.co.uk
+#                         graham@firstalt.co.uk
+#                         01380 813520 (phone & fax)
+#
+/usr/local/bin/pppd /dev/term/a 19200 158.152.118.164: \
+  connect '/usr/local/bin/chat -f /etc/ppp/chat-script'
+#
+# Allow 30 seconds to establish link
+#
+sleep 30
+#
+# Set up packet routing and allow time for Mail exchange, etc
+# to get well underway.
+#
+route add default 158.152.1.222 0
+sleep 60
+#
+# Kick any further services
+/usr/lib/sendmail -q
+#
+# Allow those services time to "complete"
+#
+sleep 240
+#
+# If someone has "remote logged in" requested link to stay,
+# maintain it. (The "ping" keeps some line activity running
+# to avoid disconnect until required
+#
+while (-e /tmp/remain-here)
+       sleep 90
+       ping gate.demon.co.uk
+end
+#
+# Close link
+#
+kill `cat /etc/ppp/ppp0.pid`
+
+  * This script above is "good" for a one-off connection, or for
+    including in root's "crontab" to run on a regular basis.
+
+    For example, if you use "crontab -e" to add the following
+    line to root's crontab:
+
+            15 6,9,12,15,18 * * 1-5 /usr/local/bin/demon
+
+    The link will be made automatically, and mail exchanged,
+    mondays through Fridays every 3 hours from 06:15 to 18:15.
+
+    Note that emails WILL be sent to root each time it runs; to
+    supress this, edit the script "demon" so that
+
+            route add default 158.152.1.222 0
+
+    becomes
+
+            route add default 158.152.1.222 0 > /dev/null
+
+    (no output is then generated by the cron job unless there is
+    an error)
+
+  * If you wish to connect to demon and stay on line a while (for
+    example to browse the web, or run ftp or telnet), then the
+    timed connection of around 6 minutes will allow you to get
+    nicely started then will dump you.
+
+    In order to allow you to stay on line, once the connection is
+    established
+
+            touch /tmp/remain-here
+
+    Demon "drops" connections which are inactive for a few
+    minutes, so the sample script ensures there is traffic via a
+    "ping" every 90 seconds. It is VITAL to avoid phone charges
+    that you
+
+            rm /tmp/remain-here
+
+    once you have completed your session.
+
+What have I achieved to this point?
+  * A PPP link to Demon, automatically exchanging email as and
+    when you wish, and running other services which do not
+    require additional software or configuration
+
+What remains?
+  * Setting up and using other services which need to be
+    configured
+  * Consideration of security aspects
+
+1.5 Web
+
+To get browsing ...
+  * get browser via ftp ...
+
+    ftp to sunsite.doc.ic.ac.uk; anonymous login
+    software is in
+    /packages/Netscape/pub/navigator/3.01/unix
+    file netscape-v301-export.sparc-sun-solaris2.4.tar.gz
+
+  * In this example, we have placed the file in a staging
+    directory and then copied it up to /usr/local/bin
+
+    wellho# mkdir netscape
+    wellho# cd !$
+    cd netscape
+    wellho# tar xvf ../net*v301*
+    x README, 9832 bytes, 20 tape blocks
+    x LICENSE, 12965 bytes, 26 tape blocks
+    ..... etc
+    wellho# cp netscape /usr/local/bin
+    wellho#
+
+  * And .. err ... it should work!
+
+    (Remember - you may need to rehash the very first time)
+
+    wellho# netscape
+    netscape: Command not found
+    wellho# rehash
+    wellho# netscape
+
+  * The first time you run the software, it will contact
+    netscape's home site - so you do need to be on line. We
+    suggest you change the home location to a local file so that
+    the browser can be started even when you're offline
+
+  * And - now do remember that this is licensed software and you
+    will probably need to register.
+
+1.6 News
+
+Right - before you install all the news software for a local site,
+remember that it you're an infrequent news reader, you may prefer
+to use an on-line news reader. For example, while on line you
+could use the netscape software you installed in the previous
+section to
+
+  * Point to / read news from news.demon.co.uk or
+
+  * Point your browser at
+
+            http://www.dejanews.com
+
+Great services, BUT you'll spend a fortune on phone calls is you
+become an avid news fan!
+
+  * OK - so you want to feed some news groups down to your Sun
+    and surf them off line? Get the following software ...
+
+    ftp to sunsite.doc.ic.ac.uk; anonymous login
+    software is in
+    /packages/news/transport/nntp/nntp/server
+    file nntp.1.5.12.2.tar.gz
+
+    ftp to ftp.demon.co.uk; anonymous login
+    software is in
+    /pub/news/slurp
+    file slurp-1.10.tar.Z
+
+    If you don't have it, you will also need Perl.
+    We used Perl 5.003
+    (Commonly available software)
+    (loading instructions NOT included in these notes)
+    Perl training is available from First Alternative
+
+To keep this document down to a reasonable length, the
+installation and configuration of news server software, and
+establishing a news flow from Demon, is in a separate deocument -
+located at http://www.firstalt.co.uk/drive/localnews.html.
+
+1.7 Routing
+
+I've set up my Sun workstation using a Demon "10 quid a month"
+dial up account.
+
+This gives me a SINGLE IP address, so even if I was connecting a
+Sun which is networked to other Suns, those other Suns cannot be
+addressed / contacted from Demon.
+
+If I DO need to use my Demon link to connect an entire network to
+the internet, I need
+  + A more expensive Demon account
+  + A registered IP address in my own right
+  + And to run routing software
+A leased line, or ISDN, might not be a bad idea as well!!
+
+Other notes:
+  * Routing software IS standard in Solaris 2.5, and the PPP
+    package we used does have some notes about using it to route
+    PPP to local ethernet within the documentation.
+  * For further information of the Demon accounts, I suggest you
+    contact them. I believe they call also register a class "C"
+    address for you.
+  * Now - you MIGHT find that you can "get around" some of the
+    limitations of "no routing" within your local network; yes,
+    if I had a network of Suns I could set then up so that I
+    could read my mail on any screen, and I could also browse the
+    web from any screen. BUT that might contravene Demon's terms
+    and conditions of service on the ten-pound-a-month account.
+
+1.8 Other Services (client)
+
+How about ftp, telnet, X Windows, NFS, rlogin rsh rcp, rdate,
+finger?
+
+These services are provided as a standard part of Solaris 2.5, and
+will work without any internet specific configuration when you are
+on line - exactly as they would work between two machines in your
+local network.
+
+  * Yes - First Alternative DOES offer training on these!
+
+One service many people are NOT familiar with is "rdate" - the
+ability to set your local clock from the network. Demon have a
+"time" machine; this example shows how to set your Sun's clock
+from it.
+
+Setting your local clock:
+
+wellho# date
+Sun Feb  2 17:37:45 GMT 1997
+wellho# rdate time.demon.co.uk
+Sun Feb  2 17:36:59 1997
+wellho# date
+Sun Feb  2 17:37:09 GMT 1997
+wellho#
+
+    Example shows a local clock that was fast being reset ...
+
+    A useful addition to your log on script?
+
+1.9 Other Services (server)
+
+In general, it's impractical to offer services via your dial up
+connection.
+
+  * Solaris 2.5 provides both client and server software for ftp,
+    telnet, and many other services.
+  * You already have the client ends running, but while you are
+    on line people can also access the servers that run on your
+    machine.
+  * If you log on "casually" from time to time, it's pretty
+    impractical for anyone to come in any actually use those
+    services, but if you connect regularly and/or for longer
+    periods, you may wish to consider offereing a service to
+    friends / colleagues. You also need to consider SECURITY.
+
+Providing web pages is slightly different.
+  * There is no server provided as standard with Solaris 2.5, but
+    many people wish to have their own home page. Using Demon's
+    service, you can prepare your web pages locally and load up
+    to 5Mbytes up to one of their servers via FTP.
+  * If you are seriously into publishing on the web you will
+    probably still want Demon to host your pages, but you will
+    want to run a local server on your workstation so that you
+    can test them. This is a straightforward operation, although
+    there are quite a few configuration files and a few tricks.
+    If you want to try this out, come on our course!
+
+1.10 Securing yourself against others
+
+OK - so you've decided that it's impractical for your colleagues
+to log in / use your system when its on line, even though your
+server daemons are running or available. fine.
+
+  * BUT THAT DOES NOT STOP ILLICIT ATTEMPTS AT HACKING into your
+    system. While you are on line, what gates are you leaving
+    open?
+
+  * To START, you may wish to check the following
+       + /etc/hosts.equiv and .rhost settings
+       + Do all accounts have good passwords?
+       + What services ARE allowed in /etc/inetd.conf
+       + What are you sharing to the world via NFS?
+
+  * Further things to think of if you do offer a service include
+    xinetd, anonymous ftp, restricted shells ...
+
+1.11 Also via Email / Also via Telnet
+
+  * As you have email and outgoing telnet, the following net
+    services will be available ...
+       + list servers
+       + talkers
+       + ftpmail
+       + Archie
+       + Gopher
+         (you may want to run a local Gopher client, however)
+       + and others.
+
+  * Yes - you COULD run email based services if you connect in
+    with reasonable frequency - list servers and the like.
+
+What have I achieved to this point?
+  * you have a dial up connection via Demon internet giving you
+    full email and web access, and also news access and other
+    services.
+  * you have automated the connection to meet your own needs and
+    perhaps are offering limited services as well
+  * you have considered the security aspects!
+
+What remains?
+  * TAKE A BACKUP. A full one. You don't want to have to repeat
+    all this work, do you.
+  * Enjoy ;-)
+
+2.0 Local Service Provision via RS232
+
+If you wish to connect a local PC into your Sun workstation via IP
+protocols / PPP, you CAN do so using the same PPP package that we
+used in the earlier example for Demon.
+
+These are brief notes I took when I made such a connection ..
+  * Install PPP as above (no need to set up chat-script or
+    anything beyond that point
+
+  * Talk on RS232 port via ...
+
+    /usr/local/bin/pppd /dev/term/a 9600 158.152.1.65:
+
+  * Set up *remote* System (we used Trumpet Winsock in a PC) ..
+
+    IP address:  158.152.118.164
+    Name Server / Time Server:    158.152.1.65
+    Domain Suffix: wellho.demon.co.uk
+    MTU 576
+    TCP RWIN 2048
+    TCP MSS 536
+    Demand Load Timeout   5 secs
+    TCP RTO MAX   60
+    Internal PPP selected
+    SLIP Port 2
+    Baud Rate 9600
+    Hardware handshake OFF
+    Van Jacobsen CSLIP compression OFF
+    Online Status detection   None
+
+That gets the basics running. I have a web server running on my
+Sun workstation, and so my PC can come in via FTP, Telnet, browse
+the web, etc ... depending on what windows clients I have
+
+My personal set up does NOT handle mail or news; not much point in
+sending mail about 3 feet!!
+
+If you are going to make use of this incoming facility, especially
+if you would be doing so via a modem / dial in link, you would
+need to consider
+  * User Authentication; running a "login" daemon, chat scripts,
+    passwords etc
+  * Using a different set of IP addresses.
+  * How you would handle email.
+
+First Alternative Training
+1, The Court
+High Street
+Harwell
+Oxon OX11 0EY
+UK
+
+Phone: 01235 820011 (International +44 1235 820011)
+Fax: 01235 820750 (International +44 1235 820750)
+
+email: graham@firstalt.co.uk
+
+http://www.firstalt.co.uk
+
+Updated 03 Feb 1997

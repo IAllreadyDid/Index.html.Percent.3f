@@ -1,0 +1,216 @@
+Patch-ID# 101817-01
+Keywords: lockd, rpc.lockd, file locking
+Synopsis: 4.1;4.1.1;4.1.2: rpc.lockd jumbo patch
+Date: Jun/06/94
+
+SunOS Release: 4.1, 4.1.1, 4.1.2
+ 
+Unbundled Product: 
+ 
+Topic: rpc.lockd jumbo patch for 4.1;4.1.1;4.1.2
+
+  NOTE: Previously, lockd patch support for SunOS 4.1;4.1.1;4.1.2 was
+        provided in patch 100075.  Beginning with 100075-12, support
+        for these releases has been discontinued in that patch.  The
+        100075 patch will only continue to maintain SunSO 4.1.3 lockd
+        fixes.  Support for 4.1;4.1.1;4.1.2 releases levels up to the
+        previous 100075-11 rev has been duplicated in this patch.
+ 
+BugId's fixed with this patch: 1077402 1080359 1040406 1046373 1063692 1064183 1071435 1074757 1097368
+
+Changes incorporated in this version: duplicates 100075-11 for 4.1;4.1.1;4.1.2
+
+Architectures for which this patch is available: sun4 sun4c sun4m sun3 sun3x
+
+Obsoleted by: 
+
+Files  included with this patch: rpc.lockd and kernel modules
+
+Problem Description:
+
+	PROBLEMS FIXED BY 100075-11 PATCH
+
+	i) corrects some problems with -10
+
+	PROBLEMS FIXED BY 100075-10 PATCH
+
+	i) The SunDBE 1.1 and 1.2 compatible patch built.
+
+	PROBLEMS FIXED BY 100075-09 PATCH
+
+	i) When /tmp was mounted as "tmpfs" file system lock recovery
+	failed when clients rebooted.
+
+	ii) When locking with svr4 (or 4.x) machines and one of the machines 
+	was rebooted, locking to that machine would not work until both 
+	machines were rebooted as the client handle had wrong port of 
+	rpc.lockd.
+
+	iii) When a client systems recovers after crash, not all locks 
+	belonging to that system get released.
+
+
+	PROBLEMS FIXED BY 100075-08 PATCH
+
+	i) klm protocol was changed but the rpc number was not.
+
+	ii) Shared or exclusive lock relative to EOF does not work
+	correctly.
+
+	iii) Deadlock is not detected when locking over NFS.
+
+	iv) Downgrade of a lock does not grant other read locks.
+
+	v) Panic "corrupt file lock list" might occur.
+
+	vi) rpc.lockd does not release memory allocated and grows in size.
+
+	vii) When doing "region locking" some regions do not get properly
+	unlocked.
+
+	viii) Granting of locks not working correctly when local and remote
+	locks on same file are used at the same time.
+
+	ix) Unlock that is interrupted by signal could leave the file as
+	being locked by a process that does not exist.
+
+	x) Core dump of rpc.lockd when unlocking in lm_unlock_region.
+
+	xi) When server is rebooted locks are not reclaimed correctly.
+
+	PROBLEMS FIXED BY 100075-07 PATCH
+
+	WARNING:
+	-------
+	Due to fixes for iv) v) and vii) listed below, there is a potential 
+	interoperabilty problem when 07 patch is the client and 06 patch is the 
+	server; ie. lock requests that are being queued in the 06 server may 
+	not get granted.
+	
+	There is no side-effect expected if the 07 patch is the server.
+
+	i) Check for sanity of lock requests and return EINVAL if lock ranges
+	is abnormal (ie. start < end).
+
+	ii) Fix problem where locking to EOF request results in the last byte 
+	of the file not being locked.
+
+	iii) Fix problems where lock requests tend to get lost when 
+	interruptions to the daemon hosed its internal data structures;
+	this may also cause the daemon to core dump in certain cases.
+
+	iv) Fix problems where the server lock daemon not sending back 
+	NLM_GRANTED_MSG to remote blocked clients.
+
+	v) Fix protocol implementation problem with NLM_GRANTED_MSG.
+
+	vi) Fixed problems where NLM_CANCEL_MSGS and KLM_CANCEL_MSG result
+	in applications waiting forever.
+
+	vii) Fix error recovery mechanism to allow clients to reclaim locks 
+	after servers crash & recover.
+
+	viii) Fix the krpc call timeout to 5 sec instead of 45 sec for better
+	response.  This also fixed the potential problem where results 
+	for lock request is missed by the kernel.
+
+	ix) Fix "panic inactive" on the server.
+
+	x) Fix problem where the temporary file /tmp/foo is not being removed
+	after the client lock mgr crashes & recovers.
+	
+	xi) Fix panic trap data fault when more than 135 processes
+	concurrently try an do file locking.
+
+	PROBLEMS FIXED BY 100075-06 PATCH
+
+	i) Fixed problems where locks were getting lost on a heavily
+	loaded system, particularly when using shared locks or test
+	lock calls.
+
+	ii) Fixed problem where pc-nfs applications were failing with
+	"rpc.lockd: unable to unlock a lock" and "rpc.lockd: unable to 
+	set a lock."
+
+	iii) Fixed problem with automatic upgrade and downgrade of 
+	locks.
+
+	iv) Fixed problem with client reboot (L1 A) and locks not being
+	recovered after that.
+
+	v) Fixed problem with signal interrupting lock calls and wrong
+	error code returned.
+
+	vi) Fixed problem with infinite retry of lock on unlinked files.
+
+	vii) Fixed problem with local blocking shared locks not being
+	granted a lock when one is available.
+
+	viii) Fixed problem with u-area overwrite when doing test lock.
+
+	ix) Fixed problem where messages like "klm_lockmgr: unlock denied?!" 
+	and "lock-manager: RPC error: .." no longer appear under normal 
+	operations.
+
+	x) Additionally this patch allows the kernel lockf debugging code
+	to be turned on and off dynamically by setting/unsetting the
+        variable lock_debug_on using the following command:-
+
+                #adb -w -k /vmunix /dev/mem
+                physmem XXX
+                lock_debug_on/W 1
+                ^D
+
+        PROBLEMS FIXED BY 100075-05 PATCH
+
+	i) Fixed problem with running out of file descriptors and
+	getting RPC TIMEOUT errors, seen when running large number
+	of diskless clients.
+
+	ii) Fixed problem where fd and fd structure was not released
+	when doing test lock, eventually running out of file 
+	descriptors. This problem would occur when running WP and
+	quitting out of the window.
+
+	iii) Fixed problem where rpc.lockd core dumps after a large
+	amount of time when running "fame" application.
+
+	iv) Fixed problem where restarting lockd on a client results
+	in the server not being able to communicate with the new lockd
+	as it has an old client handle that is associated with a now
+	invalid port number.
+
+	v) Fixed problem where upgrade from a read lock to a write lock 
+	is allowed when remote read locks are outstanding.
+
+
+INSTALL:
+
+*******************************************************************
+* THIS PATCH IS SunDBE comptaible. THIS PATCH IS KEPT IN SEPARATE *
+* DIRECTORY FOR EVERY GENERIC AND SUN ARCHITECTURE. FOR EXAMPLE   *
+* THE SUNDBE PATCH FOR 4.1.2 and SUN4M ARCHITECTURE WILL BE FOUND *
+* IN ./SUN4M/4.1.2_DBE/ DIRECTORY.                                *
+* THE RPC.LOCKD WILL REMAIN THE SAME FOR GENERIC AND SUNDBE       *
+*******************************************************************
+ 
+After extracting fix tape contents into /tmp, as root install
+the appropriate sun4 sun4c sun4m sun3 or sun3x patches as follows:
+
+        cd /sys/{sun4,sun4m,sun4c,sun3,sun3x}/OBJ
+        mv kern_descrip.o kern_descrip.o.FCS
+        mv klm_lockmgr.o klm_lockmgr.o.FCS
+        mv ufs_lockf.o ufs_lockf.o.FCS
+	mv /usr/etc/rpc.lockd /usr/etc/rpc.lockd.FCS
+        cp /tmp/{sun4,sun4m,sun4c,sun3,sun3x}/kern_descrip.o kern_descrip.o
+        cp /tmp/{sun4,sun4m,sun4c,sun3,sun3x}/klm_lockmgr.o klm_lockmgr.o
+        cp /tmp/{sun4,sun4m,sun4c,sun3,sun3x}/ufs_lockf.o ufs_lockf.o
+        cp /tmp/{sun4,sun4m,sun4c,sun3,sun3x}/rpc.lockd /usr/etc/rpc.lockd
+        chmod 444 kern_descrip.o klm_lockmgr.o ufs_lockf.o
+        chmod 755 /usr/etc/rpc.lockd
+ 
+Then a new kernel will need to be made
+ 
+Please refer to the System and Network Administration manual
+on building and installing a custom kernel.
+

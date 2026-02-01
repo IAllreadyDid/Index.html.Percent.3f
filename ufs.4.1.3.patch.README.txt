@@ -1,0 +1,47 @@
+This Patch upgrades you File Systen to the SunOS 4.1.3 Version.
+
+This Path is for sun3/3x only!
+
+Important change: The UFS now has a clean-flag and the system can
+check if a fsck is necessary.
+
+Install as root with the following commands:
+
+foreach i (*.o)
+mv /sys/`arch -k`/OBJ/$i /sys/`arch -k`/OBJ/$i.411
+end
+mv /sys/ufs /sys/ufs.411
+mv /usr/include/ufs /usr/include/ufs.411
+mv /sys/sys/filio.h /sys/sys/filio.h.411
+mv /usr/include/sys/filio.h /usr/include/sys/filio.h.411
+mv /sys/sun/stubs.c /sys/sun/stubs.c.411
+mv /usr/etc/rpc.lockd /usr/etc/rpc.lockd.411
+mv /usr/etc/fsck /usr/etc/fsck.411
+mv /usr/etc/mkfs /usr/etc/mkfs.411
+
+cp *.o /sys/`arch -k`/OBJ
+mkdir /sys/ufs
+cp lockfs.h filio.h filai.h vaccess.h /sys/sys
+cp lockfs.h filio.h filai.h vaccess.h /usr/include/sys
+cp dbx_ufs.c fs.h inode.h lockfs.h quota.h fsdir.h lockf.h mount.h /sys/ufs
+cp dbx_ufs.c fs.h inode.h lockfs.h quota.h fsdir.h lockf.h mount.h /usr/include/ufs
+cp stubs.c /sys/sun
+cp fsck /usr/etc
+chmod 755 /usr/etc/fsck
+cp mkfs /usr/etc
+chmod 755 /usr/etc/mkfs
+cp rpc.lockd /usr/etc
+chmod 755 /usr/etc/rpc.lockd
+
+Generate a new Kernel:
+
+cd /sys/`arch -k`/conf
+setenv KERNELNAME `cat /etc/motd | sed -e "s/.*(//" | sed -e "s/).*//"`
+config $KERNELNAME
+cd ../$KERNELNAME
+make
+
+Install the new Kernel:
+mv /vmunix /vmunix.old
+mv vmunix /
+reboot

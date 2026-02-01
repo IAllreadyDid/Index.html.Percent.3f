@@ -1,0 +1,12 @@
+Synopsis: Update SunOS 4.1.1 to SunOS 4.1.1_U1
+
+Directions for patch installation:
+
+    Install SunOS 4.1.1 (since you're reading this, you've probably
+    already done that...)
+
+    have a closer look on the Files included in the tar-Archive...one is
+    a shell-script which installs the stuff from tape...I've done this a
+    while ago and I don't remember what I hat to do...but it somehow works ;)
+
+    Sorry for such a bad help...
